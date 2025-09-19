@@ -154,12 +154,9 @@ If you get the **"replicate not installed"** error on macOS:
 
 ## Getting Your API Key
 
-**Important**: Replicate requires a **paid Replicate account**.
-
 1. **Visit [Replicate](https://replicate.com/)**
-2. **Enable billing** for your Google Cloud account
-3. **Generate an API key**
-4. **Keep your key secure and monitor usage/costs**
+2. **Generate an API key**
+3. **Keep your key secure and monitor usage/costs**
 
 ### API Specifications
 
