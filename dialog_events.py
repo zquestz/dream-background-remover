@@ -10,7 +10,7 @@ from gi.repository import Gtk, GLib
 
 from dialog_threads import DreamBackgroundRemoverThreads
 from i18n import _
-from settings import store_settings, load_settings
+from settings import store_settings
 
 class DreamBackgroundRemoverEventHandler:
     """Handles all dialog events and user interactions"""
@@ -27,27 +27,25 @@ class DreamBackgroundRemoverEventHandler:
             'on_error': self.show_error
         })
 
-        settings = load_settings()
-        if self.ui.toggle_visibility_btn and self.ui.api_key_entry:
-            is_visible = settings.get("api_key_visible", False)
-            self.ui.toggle_visibility_btn.set_active(is_visible)
+        if self.ui.toggle_visibility_btn:
             self.on_toggle_visibility(self.ui.toggle_visibility_btn)
 
         def after_init():
             if self.ui.api_key_entry:
                 self.ui.api_key_entry.select_region(0, 0)
-                self.ui.api_key_entry.grab_focus()
-            return False
+            if self.ui.model_combo:
+                self.ui.model_combo.grab_focus()
+
+            self.update_remove_background_button_state()
 
         GLib.idle_add(after_init)
 
+    def close_on_success(self):
+        """Close dialog on successful completion"""
+        self.dialog.response(Gtk.ResponseType.OK)
+
     def connect_all_signals(self):
         """Connect all UI signals to handlers"""
-        if self.ui.layer_mode_radio:
-            self.ui.layer_mode_radio.connect("toggled", self.on_mode_changed)
-        if self.ui.file_mode_radio:
-            self.ui.file_mode_radio.connect("toggled", self.on_mode_changed)
-
         if self.ui.model_combo:
             self.ui.model_combo.connect("changed", self.on_model_changed)
 
@@ -56,67 +54,33 @@ class DreamBackgroundRemoverEventHandler:
 
         if self.ui.cancel_btn:
             self.ui.cancel_btn.connect("clicked", self.on_cancel)
+
         if self.ui.remove_background_btn:
             self.ui.remove_background_btn.connect("clicked", self.on_remove_background)
 
         if self.ui.api_key_entry:
             self.ui.api_key_entry.connect("changed", self.on_api_key_changed)
 
-    def on_mode_changed(self, radio_button):
-        """Handle mode selection changes"""
-        if not self.ui.layer_mode_radio or not self.drawable:
-            return
-
-        is_file_mode = self.ui.file_mode_radio and self.ui.file_mode_radio.get_active()
-        self.ui.update_mode_description(is_file_mode)
-
-        if self.ui.remove_background_btn:
-            self.ui.remove_background_btn.set_label(_("Remove Background"))
-
-    def on_model_changed(self, combo_box):
-        """Handle model selection changes"""
-        if not combo_box or not self.ui.model_description:
-            return
-
-        current_model = self.dialog.get_current_model()
-        if current_model == "bria":
-            description = _("Bria's Remove Background model - High Quality and More Expensive")
-        else:
-            description = _("851 Labs Background Remover - Fast and Inexpensive")
-
-        self.ui.model_description.set_markup(f'<small><i>{description}</i></small>')
-
-    def update_remove_background_button_state(self):
-        """Update remove background button sensitivity based on input state"""
-        if not self.ui.remove_background_btn or not self.ui.api_key_entry:
-            return
-
-        api_key = self.ui.api_key_entry.get_text().strip()
-        self.ui.remove_background_btn.set_sensitive(bool(api_key))
-
-    def on_api_key_changed(self, entry):
+    def on_api_key_changed(self, _entry):
         """Handle API key changes"""
         self.update_remove_background_button_state()
 
-    def on_toggle_visibility(self, button):
-        """Handle API key visibility toggle"""
-        if not self.ui.api_key_entry:
-            return
-
-        is_visible = button.get_active()
-        self.ui.api_key_entry.set_visibility(is_visible)
-
-        icon_name = "view-reveal-symbolic" if is_visible else "view-conceal-symbolic"
-        button.get_image().set_from_icon_name(icon_name, Gtk.IconSize.BUTTON)
-
-    def on_cancel(self, button):
+    def on_cancel(self, _button):
         """Handle cancel button click"""
         if self.threads.is_processing():
             self.threads.cancel_processing()
         else:
             self.dialog.response(Gtk.ResponseType.CANCEL)
 
-    def on_remove_background(self, button):
+    def on_model_changed(self, combo_box):
+        """Handle model selection changes"""
+        if not combo_box:
+            return
+
+        current_model = self.dialog.get_current_model()
+        self.ui.update_model_description(current_model)
+
+    def on_remove_background(self, _button):
         """Handle remove background button click"""
         api_key = self.dialog.get_api_key()
         if not api_key:
@@ -131,45 +95,25 @@ class DreamBackgroundRemoverEventHandler:
 
         self.threads.start_background_removal_thread(api_key, mode, model)
 
+    def on_toggle_visibility(self, button):
+        """Handle API key visibility toggle"""
+        if not self.ui.api_key_entry:
+            return
+
+        self.ui.toggle_api_key_visibility(button)
+
     def show_error(self, message):
         """Show error message and enable interface"""
         if self.ui.status_label:
             self.ui.status_label.set_text(message)
 
-        self.dialog.hide_progress()
-        self._enable_ui()
+        self.ui.hide_progress()
+        self.ui.set_ui_enabled(True)
 
-    def close_on_success(self):
-        """Close dialog on successful completion"""
-        self.dialog.response(Gtk.ResponseType.OK)
+    def update_remove_background_button_state(self):
+        """Update remove background button sensitivity based on input state"""
+        if not self.ui.api_key_entry:
+            return
 
-    def _enable_ui(self):
-        """Re-enable UI controls"""
-        if self.ui.api_key_entry:
-            self.ui.api_key_entry.set_sensitive(True)
-        if self.ui.toggle_visibility_btn:
-            self.ui.toggle_visibility_btn.set_sensitive(True)
-        if self.ui.layer_mode_radio:
-            self.ui.layer_mode_radio.set_sensitive(True)
-        if self.ui.file_mode_radio:
-            self.ui.file_mode_radio.set_sensitive(True)
-        if self.ui.model_combo:
-            self.ui.model_combo.set_sensitive(True)
-        if self.ui.remove_background_btn:
-            self.ui.remove_background_btn.set_sensitive(True)
-            self.ui.remove_background_btn.set_label(_("Remove Background"))
-
-    def _disable_ui(self):
-        """Disable UI controls during processing"""
-        if self.ui.api_key_entry:
-            self.ui.api_key_entry.set_sensitive(False)
-        if self.ui.toggle_visibility_btn:
-            self.ui.toggle_visibility_btn.set_sensitive(False)
-        if self.ui.layer_mode_radio:
-            self.ui.layer_mode_radio.set_sensitive(False)
-        if self.ui.file_mode_radio:
-            self.ui.file_mode_radio.set_sensitive(False)
-        if self.ui.model_combo:
-            self.ui.model_combo.set_sensitive(False)
-        if self.ui.remove_background_btn:
-            self.ui.remove_background_btn.set_sensitive(False)
+        api_key = self.ui.api_key_entry.get_text().strip()
+        self.ui.update_remove_background_button_state(api_key)

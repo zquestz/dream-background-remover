@@ -7,31 +7,25 @@ A GIMP plugin for AI-powered background removal using Replicate's background rem
 """
 
 import gi
+import sys
+
 gi.require_version('Gtk', '3.0')
 gi.require_version('Gimp', '3.0')
 gi.require_version('GimpUi', '3.0')
 gi.require_version('GLib', '2.0')
 gi.require_version('GdkPixbuf', '2.0')
-import sys
+
+from gi.repository import Gimp, GimpUi, Gtk, GLib
 
 from dialog import DreamBackgroundRemoverDialog
-from gi.repository import Gimp, GimpUi, Gtk, GLib
 from i18n import _, DOMAIN
 
 PLUGIN_NAME = "dream-background-remover"
-PLUGIN_VERSION = "1.0.1"
+PLUGIN_VERSION = "1.0.2"
 PLUGIN_DESCRIPTION = "AI-powered background removal with Replicate"
 
 class DreamBackgroundRemover(Gimp.PlugIn):
     """Main plugin class"""
-
-    def do_set_i18n(self, procname):
-        """Enable localization"""
-        return DOMAIN
-
-    def do_query_procedures(self):
-        """Register the plugin procedure"""
-        return ['dream-background-remover']
 
     def do_create_procedure(self, name):
         """Create the plugin procedure"""
@@ -60,7 +54,15 @@ class DreamBackgroundRemover(Gimp.PlugIn):
             return procedure
         return None
 
-    def run_dream_background_remover(self, procedure, run_mode, image, drawables, config, run_data):
+    def do_query_procedures(self):
+        """Register the plugin procedure"""
+        return ['dream-background-remover']
+
+    def do_set_i18n(self, _procname):
+        """Enable localization"""
+        return DOMAIN
+
+    def run_dream_background_remover(self, procedure, run_mode, image, drawables, _config, _run_data):
         """Run the Dream Background Remover plugin"""
         if run_mode == Gimp.RunMode.INTERACTIVE:
             try:

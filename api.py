@@ -44,9 +44,8 @@ class ReplicateAPI:
         if not api_key or not api_key.strip():
             raise ValueError(_("API key is required"))
 
-        api_key = api_key.strip()
-        self.client = Client(api_token=api_key)
-        self.api_key = api_key
+        self.api_key = api_key.strip()
+        self.client = Client(api_token=self.api_key)
 
     def remove_background(
         self,

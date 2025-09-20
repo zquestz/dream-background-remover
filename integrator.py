@@ -61,13 +61,13 @@ def create_new_image_with_layer(pixbuf, layer_name):
         print(f"Error creating new image: {e}")
         return None
 
-def create_background_removed_layer(image, pixbuf, layer_name):
+def create_scaled_layer(image, pixbuf, layer_name):
     """
-    Create a new layer with background removed content in existing image
+    Create a new layer with pixbuf content, scaled to match image dimensions
 
     Args:
         image (Gimp.Image): Existing image to add layer to
-        pixbuf (GdkPixbuf.Pixbuf): Pixbuf with background removed
+        pixbuf (GdkPixbuf.Pixbuf): Pixbuf content for the layer (will be scaled if needed)
         layer_name (str): Name for the new layer
 
     Returns:

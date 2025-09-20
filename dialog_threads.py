@@ -6,11 +6,11 @@ Threading operations for Dream Background Remover dialog
 Handles all background AI processing and image operations
 """
 
-import integrator
 import threading
 
 from gi.repository import GLib
 
+import integrator
 from api import ReplicateAPI
 from i18n import _
 from settings import get_model_name
@@ -29,21 +29,20 @@ class DreamBackgroundRemoverThreads:
         self._processing = False
         self._cancel_requested = False
 
-    def set_callbacks(self, callbacks):
-        """Set callback functions for thread completion"""
-        if not isinstance(callbacks, dict):
-            return
-
-        self._callbacks = callbacks
+    def cancel_processing(self):
+        """Request cancellation of current processing"""
+        self._cancel_requested = True
+        self.ui.update_status(_("Cancelling..."))
 
     def is_processing(self):
         """Check if background removal is currently processing"""
         return self._processing
 
-    def cancel_processing(self):
-        """Request cancellation of current processing"""
-        self._cancel_requested = True
-        self._update_status(_("Cancelling..."))
+    def set_callbacks(self, callbacks):
+        """Set callback functions for thread completion"""
+        if not isinstance(callbacks, dict):
+            raise ValueError("Callbacks must be a dictionary")
+        self._callbacks = callbacks
 
     def start_background_removal_thread(self, api_key, mode, model):
         """Start background removal in background thread"""
@@ -56,7 +55,7 @@ class DreamBackgroundRemoverThreads:
 
         self._processing = True
         self._cancel_requested = False
-        self._disable_ui()
+        self.ui.set_ui_enabled(False)
 
         thread = threading.Thread(
             target=self._background_removal_worker,
@@ -78,7 +77,7 @@ class DreamBackgroundRemoverThreads:
             def progress_callback(message, percentage=None):
                 if self._cancel_requested:
                     return False
-                GLib.idle_add(self._update_status, message, percentage)
+                GLib.idle_add(self.ui.update_status, message, percentage)
                 return True
 
             pixbuf, error = api.remove_background(self.drawable, model_name, progress_callback)
@@ -98,9 +97,7 @@ class DreamBackgroundRemoverThreads:
             layer_name = self._generate_layer_name()
             GLib.idle_add(self._handle_success, pixbuf, layer_name, mode)
 
-        except ImportError as e:
-            GLib.idle_add(self._handle_error, str(e))
-        except ValueError as e:
+        except (ImportError, ValueError) as e:
             GLib.idle_add(self._handle_error, str(e))
         except Exception as e:
             error_msg = _("Unexpected error during background removal: {error}").format(error=str(e))
@@ -113,18 +110,32 @@ class DreamBackgroundRemoverThreads:
             return _("{original} (Background Removed)").format(original=original_name)
         return _("Background Removed")
 
+    def _handle_cancelled(self):
+        """Handle cancelled operation"""
+        self._processing = False
+        self.ui.update_status(_("Operation cancelled"))
+        self.ui.set_ui_enabled(True)
+
+    def _handle_error(self, error_message):
+        """Handle error during processing"""
+        self._processing = False
+        self.ui.set_ui_enabled(True)
+
+        if self._callbacks.get('on_error'):
+            self._callbacks['on_error'](error_message)
+
     def _handle_success(self, pixbuf, layer_name, mode):
         """Handle successful background removal"""
         try:
-            self._update_status(_("Creating result..."), 0.95)
+            self.ui.update_status(_("Creating result..."), 0.95)
 
             if mode == "file":
                 result = integrator.create_new_image_with_layer(pixbuf, layer_name)
             else:
-                result = integrator.create_background_removed_layer(self.image, pixbuf, layer_name)
+                result = integrator.create_scaled_layer(self.image, pixbuf, layer_name)
 
             if result:
-                self._update_status(_("Background removal completed!"), 1.0)
+                self.ui.update_status(_("Background removal completed!"), 1.0)
             else:
                 self._handle_error(_("Failed to create result image/layer"))
                 return
@@ -135,64 +146,7 @@ class DreamBackgroundRemoverThreads:
             return
 
         self._processing = False
-        self._enable_ui()
+        self.ui.set_ui_enabled(True)
 
         if self._callbacks.get('on_success'):
             self._callbacks['on_success']()
-
-    def _handle_error(self, error_message):
-        """Handle error during processing"""
-        self._processing = False
-        self._enable_ui()
-
-        if self._callbacks.get('on_error'):
-            self._callbacks['on_error'](error_message)
-
-    def _handle_cancelled(self):
-        """Handle cancelled operation"""
-        self._processing = False
-        self._update_status(_("Operation cancelled"))
-        self._enable_ui()
-
-    def _update_status(self, message, percentage=None):
-        """Update status display"""
-        if self.ui.status_label:
-            self.ui.status_label.set_text(message)
-
-        if self.ui.progress_bar:
-            if percentage is not None:
-                self.ui.progress_bar.set_fraction(percentage)
-                self.ui.progress_bar.set_visible(True)
-            else:
-                self.ui.progress_bar.pulse()
-                self.ui.progress_bar.set_visible(True)
-
-    def _enable_ui(self):
-        """Re-enable UI controls"""
-        if self.ui.api_key_entry:
-            self.ui.api_key_entry.set_sensitive(True)
-        if self.ui.toggle_visibility_btn:
-            self.ui.toggle_visibility_btn.set_sensitive(True)
-        if self.ui.layer_mode_radio:
-            self.ui.layer_mode_radio.set_sensitive(True)
-        if self.ui.file_mode_radio:
-            self.ui.file_mode_radio.set_sensitive(True)
-        if self.ui.model_combo:
-            self.ui.model_combo.set_sensitive(True)
-        if self.ui.remove_background_btn:
-            self.ui.remove_background_btn.set_sensitive(True)
-
-    def _disable_ui(self):
-        """Disable UI controls during processing"""
-        if self.ui.api_key_entry:
-            self.ui.api_key_entry.set_sensitive(False)
-        if self.ui.toggle_visibility_btn:
-            self.ui.toggle_visibility_btn.set_sensitive(False)
-        if self.ui.layer_mode_radio:
-            self.ui.layer_mode_radio.set_sensitive(False)
-        if self.ui.file_mode_radio:
-            self.ui.file_mode_radio.set_sensitive(False)
-        if self.ui.model_combo:
-            self.ui.model_combo.set_sensitive(False)
-        if self.ui.remove_background_btn:
-            self.ui.remove_background_btn.set_sensitive(False)
