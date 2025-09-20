@@ -7,6 +7,7 @@ Dream Background Remover brings Replicate's AI capabilities directly into GIMP f
 ## Features
 
 - 🎨 **AI Background Removal**: Remove backgrounds from your images
+- 🤖 **AI Model Selection**: Choose between multiple models
 - 🔄 **Smart Layer Management**: Automatically creates properly named layers
 - 🌍 **Multi-Language Support**: Setup to support multiple languages via i18n
 - 🏗️ **Native GIMP Integration**: Works seamlessly within your GIMP workflow
@@ -160,7 +161,10 @@ If you get the **"replicate not installed"** error on macOS:
 
 ### API Specifications
 
-- **Model**: `851-labs/background-remover`
+- **851 Labs Background Remover**: `851-labs/background-remover` (Default - Fast and cost-effective)
+- **Bria Remove Background**: `bria/remove-background` (High quality, more expensive)
+
+Users can select their preferred model in the plugin interface.
 
 ### Cost Considerations
 
@@ -174,11 +178,14 @@ If you get the **"replicate not installed"** error on macOS:
 1. **Open an image in GIMP**
 2. **Launch Dream Background Remover**: `Filters → AI → Dream Background Remover...`
 3. **Enter your API key** (saved automatically for future use)
-4. **Select mode**:
+4. **Select AI model**:
+   - **851 Labs Background Remover**: Fast and cost-effective (recommended for most users)
+   - **Bria Remove Background**: Higher quality results, higher cost
+5. **Select mode**:
    - **Create Layer**: Creates a layer in your current image with the background removed
    - **Create File**: Create a new image with your background removed
-5. **Generate**: Click the generate button and watch the progress
-6. **Result**: New layer or file appears with the background removed
+6. **Generate**: Click "Remove Background" and watch the progress
+7. **Result**: New layer or file appears with the background removed
 
 ## Language Support
 

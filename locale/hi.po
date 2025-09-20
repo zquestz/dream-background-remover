@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dream Background Remover 1.0.0\n"
 "Report-Msgid-Bugs-To: quest@mac.com\n"
-"POT-Creation-Date: 2025-09-18 22:56-1000\n"
-"PO-Revision-Date: 2025-09-18 22:56-1000\n"
+"POT-Creation-Date: 2025-09-19 22:22-1000\n"
+"PO-Revision-Date: 2025-09-19 22:22-1000\n"
 "Last-Translator: AI Assistant\n"
 "Language-Team: Hindi\n"
 "Language: hi\n"
@@ -15,75 +15,83 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+#: dialog_events.py:85
+msgid "851 Labs Background Remover - Fast and Inexpensive"
+msgstr "851 Labs पृष्ठभूमि हटाने वाला - तेज़ और सस्ता"
+
+#: dialog_gtk.py:132
+msgid "AI Model"
+msgstr "AI मॉडल"
+
 #: dream-background-remover.py:51
 msgid "AI-powered background removal with Replicate"
 msgstr "Replicate के साथ AI-संचालित पृष्ठभूमि हटाना"
 
-#: api.py:39
+#: api.py:45
 msgid "API key is required"
-msgstr "API कुंजी आवश्यक है"
+msgstr "API की आवश्यकता है"
 
-#: dialog_events.py:162
-msgid "Background Removal Error"
-msgstr "पृष्ठभूमि हटाने की त्रुटि"
-
-#: dialog_threads.py:116 dialog_threads.py:119 dialog_threads.py:135
-#: integrator.py:189
+#: dialog_threads.py:114 integrator.py:189
 msgid "Background Removed"
-msgstr "पृष्ठभूमि हटा दी गई"
+msgstr "पृष्ठभूमि हटाई गई"
 
-#: api.py:106
+#: api.py:128
 msgid "Background removal complete!"
-msgstr "पृष्ठभूमि हटाना पूरा हो गया!"
+msgstr "पृष्ठभूमि हटाना पूर्ण!"
 
-#: dialog_gtk.py:154 dialog_threads.py:171 dialog_threads.py:192
+#: dialog_threads.py:127
+msgid "Background removal completed!"
+msgstr "पृष्ठभूमि हटाना पूर्ण!"
+
+#: dialog_events.py:83
+msgid "Bria's Remove Background model - High Quality and More Expensive"
+msgstr "Bria का पृष्ठभूमि हटाने वाला मॉडल - उच्च गुणवत्ता और अधिक महंगा"
+
+#: dialog_gtk.py:185
 msgid "Cancel"
 msgstr "रद्द करें"
 
-#: dialog_threads.py:44
+#: dialog_threads.py:46
 msgid "Cancelling..."
 msgstr "रद्द किया जा रहा है..."
 
-#: dialog_gtk.py:133
+#: dialog_gtk.py:175
+msgid "Choose how to handle the result"
+msgstr "परिणाम को कैसे संभालना है चुनें"
+
+#: dialog_gtk.py:146
+msgid "Choose the AI model for background removal"
+msgstr "पृष्ठभूमि हटाने के लिए AI मॉडल चुनें"
+
+#: dialog_gtk.py:166
 msgid "Create File"
-msgstr "फ़ाइल बनाएं"
+msgstr "फाइल बनाएं"
 
-#: dialog_gtk.py:129
+#: dialog_gtk.py:162
 msgid "Create Layer"
-msgstr "परत बनाएं"
+msgstr "लेयर बनाएं"
 
-#: dialog_events.py:75
-#, fuzzy
-msgid "Create New Image"
-msgstr "परत बनाएं"
+#: dialog_gtk.py:215
+msgid "Create a new image file with background removed"
+msgstr "पृष्ठभूमि हटाकर एक नई छवि फाइल बनाएं"
 
-#: dialog_gtk.py:192
-#, python-brace-format
-msgid "Create a new image file with background removed from '{layer}'"
-msgstr "'{layer}' से पृष्ठभूमि हटाकर नई छवि फ़ाइल बनाएं"
+#: dialog_gtk.py:217
+msgid "Create a new layer with background removed"
+msgstr "पृष्ठभूमि हटाकर एक नई लेयर बनाएं"
 
-#: dialog_gtk.py:194
-#, python-brace-format
-msgid "Create a new layer with background removed from '{layer}'"
-msgstr "'{layer}' से पृष्ठभूमि हटाकर नई परत बनाएं"
+#: dialog_threads.py:119
+msgid "Creating result..."
+msgstr "परिणाम बनाया जा रहा है..."
 
-#: dialog_threads.py:114
-msgid "Creating new image file..."
-msgstr "नई छवि फ़ाइल बनाई जा रही है..."
-
-#: dialog_threads.py:129
-msgid "Creating new layer..."
-msgstr "नई परत बनाई जा रही है..."
-
-#: dialog.py:50 dialog.py:91 dialog_events.py:66
+#: dialog.py:51
 msgid "Current Layer"
-msgstr "वर्तमान परत"
+msgstr "वर्तमान लेयर"
 
-#: api.py:93
+#: api.py:115
 msgid "Downloading result..."
 msgstr "परिणाम डाउनलोड हो रहा है..."
 
-#: dialog.py:23
+#: dialog.py:24
 msgid "Dream Background Remover - AI Background Removal"
 msgstr "Dream Background Remover - AI पृष्ठभूमि हटाना"
 
@@ -91,187 +99,163 @@ msgstr "Dream Background Remover - AI पृष्ठभूमि हटान�
 msgid "Dream Background Remover..."
 msgstr "Dream Background Remover..."
 
-#: dialog_gtk.py:77
+#: dialog_gtk.py:84
 msgid "Enter your Replicate API key..."
-msgstr "अपनी Replicate API कुंजी दर्ज करें..."
+msgstr "अपनी Replicate API की दर्ज करें..."
 
-#: dialog_threads.py:148
+#: dialog_threads.py:133
 #, python-brace-format
-msgid "Error processing result: {error}"
-msgstr "परिणाम प्रसंस्करण त्रुटि: {error}"
+msgid "Error creating result: {error}"
+msgstr "परिणाम बनाने में त्रुटि: {error}"
 
 #: dream-background-remover.py:98
 #, python-brace-format
 msgid "Error running Dream Background Remover: {error}"
 msgstr "Dream Background Remover चलाने में त्रुटि: {error}"
 
-#: api.py:103
+#: api.py:125
 msgid "Failed to convert result to image"
 msgstr "परिणाम को छवि में बदलने में विफल"
 
-#: dialog_threads.py:123
-msgid "Failed to create new image file"
-msgstr "नई छवि फ़ाइल बनाने में विफल"
+#: dialog_threads.py:129
+msgid "Failed to create result image/layer"
+msgstr "परिणाम छवि/लेयर बनाने में विफल"
 
-#: dialog_threads.py:139
-msgid "Failed to create new layer"
-msgstr "नई परत बनाने में विफल"
-
-#: api.py:71
+#: api.py:93
 msgid "Failed to export image data"
 msgstr "छवि डेटा निर्यात करने में विफल"
 
-#: dialog_gtk.py:93
+#: dialog_threads.py:95
+msgid "Failed to process image"
+msgstr "छवि प्रसंस्करण विफल"
+
+#: dialog_gtk.py:100
 #, python-brace-format
 msgid "Get your API key from <a href=\"{url}\">Replicate</a>"
-msgstr "<a href=\"{url}\">Replicate</a> से अपनी API कुंजी प्राप्त करें"
+msgstr "<a href=\"{url}\">Replicate</a> से अपनी API की प्राप्त करें"
 
-#: dialog_events.py:97
-#, fuzzy
-msgid "Hide API key"
-msgstr "API कुंजी दिखाएं/छुपाएं"
-
-#: dialog_events.py:128 dream-background-remover.py:80
+#: dream-background-remover.py:80
 msgid "Invalid layer dimensions. Please select a valid layer."
-msgstr "अमान्य परत आयाम। कृपया एक मान्य परत चुनें।"
+msgstr "अमान्य लेयर आयाम। कृपया एक मान्य लेयर चुनें।"
 
-#: dialog_threads.py:131
-msgid "Layer"
-msgstr "परत"
-
-#: api.py:114
+#: api.py:136
 msgid "Logs"
 msgstr "लॉग्स"
 
-#: api.py:111
+#: api.py:133
 #, python-brace-format
 msgid "Model error: {error}"
 msgstr "मॉडल त्रुटि: {error}"
 
-#: dialog_threads.py:126
-msgid "New image created with background removed!"
-msgstr "पृष्ठभूमि हटाकर नई छवि बनाई गई!"
-
-#: dialog_threads.py:142
-msgid "New layer created with background removed!"
-msgstr "पृष्ठभूमि हटाकर नई परत बनाई गई!"
-
-#: api.py:59
+#: api.py:78
 msgid "No drawable provided"
-msgstr "कोई चित्रित करने योग्य वस्तु प्रदान नहीं की गई"
+msgstr "कोई ड्रॉ करने योग्य ऑब्जेक्ट प्रदान नहीं किया गया"
 
 #: dream-background-remover.py:68
 msgid "No image available. Please open an image first."
-msgstr "कोई छवि उपलब्ध नहीं है। कृपया पहले एक छवि खोलें।"
+msgstr "कोई छवि उपलब्ध नहीं। कृपया पहले एक छवि खोलें।"
 
-#: api.py:99
+#: api.py:121
 msgid "No image data in API response"
 msgstr "API प्रतिक्रिया में कोई छवि डेटा नहीं"
 
-#: dialog_threads.py:99
-#, fuzzy
-msgid "No image data received from API"
-msgstr "API से कोई आउटपुट प्राप्त नहीं हुआ"
+#: dialog_gtk.py:122
+msgid "No image selected"
+msgstr "कोई छवि चयनित नहीं"
 
-#: dialog_threads.py:52
+#: dialog_threads.py:54
 msgid "No layer available for background removal"
-msgstr "पृष्ठभूमि हटाने के लिए कोई परत उपलब्ध नहीं"
+msgstr "पृष्ठभूमि हटाने के लिए कोई लेयर उपलब्ध नहीं"
 
-#: dialog_events.py:124 dream-background-remover.py:73
+#: dream-background-remover.py:73
 msgid "No layer selected. Please select a layer to process."
-msgstr "कोई परत चयनित नहीं है। कृपया प्रसंस्करण के लिए एक परत चुनें।"
+msgstr "कोई लेयर चयनित नहीं। कृपया प्रसंस्करण के लिए एक लेयर चुनें।"
 
-#: api.py:91
+#: api.py:81
+msgid "No model specified"
+msgstr "कोई मॉडल निर्दिष्ट नहीं है"
+
+#: api.py:113
 msgid "No output received from API"
 msgstr "API से कोई आउटपुट प्राप्त नहीं हुआ"
 
-#: api.py:65 api.py:78 api.py:88 api.py:94 dialog_threads.py:155
+#: api.py:87 api.py:100 api.py:110 api.py:116 dialog_threads.py:154
 msgid "Operation cancelled"
-msgstr "संचालन रद्द कर दिया गया"
+msgstr "ऑपरेशन रद्द कर दिया गया"
 
-#: dialog_gtk.py:123
+#: dialog_gtk.py:156
 msgid "Output Mode"
 msgstr "आउटपुट मोड"
 
-#: dialog_events.py:120
+#: dialog_events.py:123
 msgid "Please enter your Replicate API key"
-msgstr "कृपया अपनी Replicate API कुंजी दर्ज करें"
+msgstr "कृपया अपनी Replicate API की दर्ज करें"
 
-#: dialog_events.py:137
-#, fuzzy
-msgid "Preparing image for background removal..."
-msgstr "अपलोड के लिए छवि तैयार की जा रही है..."
-
-#: api.py:64 dialog_threads.py:81
+#: api.py:86
 msgid "Preparing image for upload..."
 msgstr "अपलोड के लिए छवि तैयार की जा रही है..."
 
-#: api.py:87
+#: api.py:109
 msgid "Processing image..."
-msgstr "छवि प्रसंस्करण..."
+msgstr "छवि प्रसंस्करण हो रहा है..."
 
-#: dialog.py:136 dialog_gtk.py:174 dialog_gtk.py:236
+#: dialog.py:135 dialog_gtk.py:199
 msgid "Ready"
 msgstr "तैयार"
 
-#: dialog_events.py:77 dialog_gtk.py:159
+#: dialog_events.py:74 dialog_events.py:160 dialog_gtk.py:188
 msgid "Remove Background"
 msgstr "पृष्ठभूमि हटाएं"
-
-#: dialog.py:94
-#, python-brace-format
-msgid "Remove background from '{layer}' and create a new image file"
-msgstr "'{layer}' से पृष्ठभूमि हटाएं और नई छवि फ़ाइल बनाएं"
-
-#: dialog.py:96
-#, python-brace-format
-msgid "Remove background from '{layer}' and create a new layer"
-msgstr "'{layer}' से पृष्ठभूमि हटाएं और नई परत बनाएं"
 
 #: dream-background-remover.py:52
 msgid ""
 "Remove backgrounds from images using AI. Choose to create a new layer in the "
 "current image or generate a new image file with the background removed."
 msgstr ""
-"AI का उपयोग करके छवियों से पृष्ठभूमि हटाएं। वर्तमान छवि में नई परत बनाने या पृष्ठभूमि "
-"हटाकर नई छवि फ़ाइल बनाने का विकल्प चुनें।"
+"AI का उपयोग करके छवियों से पृष्ठभूमि हटाएं। वर्तमान छवि में एक नई लेयर बनाने या पृष्ठभूमि "
+"हटाकर एक नई छवि फाइल बनाने का विकल्प चुनें।"
 
-#: dialog_gtk.py:70
+#: dialog_gtk.py:77
 msgid "Replicate API Key"
-msgstr "Replicate API कुंजी"
+msgstr "Replicate API की"
 
-#: api.py:118
+#: api.py:140
 #, python-brace-format
 msgid "Replicate API error: {error}"
 msgstr "Replicate API त्रुटि: {error}"
 
-#: api.py:36
+#: api.py:42
 msgid "Replicate package not installed. Please run: pip install replicate"
 msgstr "Replicate पैकेज इंस्टॉल नहीं है। कृपया चलाएं: pip install replicate"
 
-#: dialog_events.py:101
-#, fuzzy
-msgid "Show API key"
-msgstr "API कुंजी दिखाएं/छुपाएं"
-
-#: dialog_gtk.py:86
+#: dialog_gtk.py:93
 msgid "Show/Hide API key"
-msgstr "API कुंजी दिखाएं/छुपाएं"
+msgstr "API की दिखाएं/छुपाएं"
 
-#: dialog_gtk.py:106
+#: dialog_gtk.py:113
 msgid "Source Image"
 msgstr "स्रोत छवि"
 
-#: dialog.py:53
+#: dialog_threads.py:106
 #, python-brace-format
-msgid "Source: {name} ({width}×{height}px)"
-msgstr "स्रोत: {name} ({width}×{height}px)"
+msgid "Unexpected error during background removal: {error}"
+msgstr "पृष्ठभूमि हटाने के दौरान अप्रत्याशित त्रुटि: {error}"
 
-#: api.py:121
+#: api.py:143
 #, python-brace-format
 msgid "Unexpected error: {error}"
 msgstr "अप्रत्याशित त्रुटि: {error}"
 
-#: api.py:77
+#: api.py:99
 msgid "Uploading image to Replicate..."
 msgstr "Replicate पर छवि अपलोड की जा रही है..."
+
+#: dialog.py:54
+#, python-brace-format
+msgid "{name} ({width}×{height}px)"
+msgstr "{name} ({width}×{height}px)"
+
+#: dialog_threads.py:113
+#, python-brace-format
+msgid "{original} (Background Removed)"
+msgstr "{original} (पृष्ठभूमि हटाई गई)"

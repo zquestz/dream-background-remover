@@ -1,4 +1,4 @@
-# Chinese Traditional translation for Dream Background Remover
+# Chinese (Traditional) translation for Dream Background Remover
 # Copyright (C) 2025 Josh Ellithorpe
 # This file is distributed under the same license as the Dream Background Remover package.
 #
@@ -6,84 +6,92 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dream Background Remover 1.0.0\n"
 "Report-Msgid-Bugs-To: quest@mac.com\n"
-"POT-Creation-Date: 2025-09-18 22:56-1000\n"
-"PO-Revision-Date: 2025-09-18 22:56-1000\n"
+"POT-Creation-Date: 2025-09-19 22:22-1000\n"
+"PO-Revision-Date: 2025-09-19 22:22-1000\n"
 "Last-Translator: AI Assistant\n"
-"Language-Team: Chinese Traditional\n"
+"Language-Team: Chinese (Traditional)\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+#: dialog_events.py:85
+msgid "851 Labs Background Remover - Fast and Inexpensive"
+msgstr "851 Labs 背景移除器 - 快速且經濟"
+
+#: dialog_gtk.py:132
+msgid "AI Model"
+msgstr "AI 模型"
+
 #: dream-background-remover.py:51
 msgid "AI-powered background removal with Replicate"
-msgstr "使用 Replicate 的 AI 背景移除"
+msgstr "使用 Replicate 的 AI 驅動背景移除"
 
-#: api.py:39
+#: api.py:45
 msgid "API key is required"
 msgstr "需要 API 金鑰"
 
-#: dialog_events.py:162
-msgid "Background Removal Error"
-msgstr "背景移除錯誤"
-
-#: dialog_threads.py:116 dialog_threads.py:119 dialog_threads.py:135
-#: integrator.py:189
+#: dialog_threads.py:114 integrator.py:189
 msgid "Background Removed"
 msgstr "背景已移除"
 
-#: api.py:106
+#: api.py:128
 msgid "Background removal complete!"
 msgstr "背景移除完成！"
 
-#: dialog_gtk.py:154 dialog_threads.py:171 dialog_threads.py:192
+#: dialog_threads.py:127
+msgid "Background removal completed!"
+msgstr "背景移除完成！"
+
+#: dialog_events.py:83
+msgid "Bria's Remove Background model - High Quality and More Expensive"
+msgstr "Bria 背景移除模型 - 高品質但較昂貴"
+
+#: dialog_gtk.py:185
 msgid "Cancel"
 msgstr "取消"
 
-#: dialog_threads.py:44
+#: dialog_threads.py:46
 msgid "Cancelling..."
-msgstr "正在取消..."
+msgstr "取消中..."
 
-#: dialog_gtk.py:133
+#: dialog_gtk.py:175
+msgid "Choose how to handle the result"
+msgstr "選擇如何處理結果"
+
+#: dialog_gtk.py:146
+msgid "Choose the AI model for background removal"
+msgstr "選擇用於背景移除的 AI 模型"
+
+#: dialog_gtk.py:166
 msgid "Create File"
 msgstr "建立檔案"
 
-#: dialog_gtk.py:129
+#: dialog_gtk.py:162
 msgid "Create Layer"
 msgstr "建立圖層"
 
-#: dialog_events.py:75
-#, fuzzy
-msgid "Create New Image"
-msgstr "建立圖層"
+#: dialog_gtk.py:215
+msgid "Create a new image file with background removed"
+msgstr "建立一個已移除背景的新圖像檔案"
 
-#: dialog_gtk.py:192
-#, python-brace-format
-msgid "Create a new image file with background removed from '{layer}'"
-msgstr "建立一個從「{layer}」移除背景的新圖像檔案"
+#: dialog_gtk.py:217
+msgid "Create a new layer with background removed"
+msgstr "建立一個已移除背景的新圖層"
 
-#: dialog_gtk.py:194
-#, python-brace-format
-msgid "Create a new layer with background removed from '{layer}'"
-msgstr "建立一個從「{layer}」移除背景的新圖層"
+#: dialog_threads.py:119
+msgid "Creating result..."
+msgstr "建立結果中..."
 
-#: dialog_threads.py:114
-msgid "Creating new image file..."
-msgstr "正在建立新圖像檔案..."
-
-#: dialog_threads.py:129
-msgid "Creating new layer..."
-msgstr "正在建立新圖層..."
-
-#: dialog.py:50 dialog.py:91 dialog_events.py:66
+#: dialog.py:51
 msgid "Current Layer"
 msgstr "目前圖層"
 
-#: api.py:93
+#: api.py:115
 msgid "Downloading result..."
-msgstr "正在下載結果..."
+msgstr "下載結果中..."
 
-#: dialog.py:23
+#: dialog.py:24
 msgid "Dream Background Remover - AI Background Removal"
 msgstr "Dream Background Remover - AI 背景移除"
 
@@ -91,187 +99,163 @@ msgstr "Dream Background Remover - AI 背景移除"
 msgid "Dream Background Remover..."
 msgstr "Dream Background Remover..."
 
-#: dialog_gtk.py:77
+#: dialog_gtk.py:84
 msgid "Enter your Replicate API key..."
 msgstr "輸入您的 Replicate API 金鑰..."
 
-#: dialog_threads.py:148
+#: dialog_threads.py:133
 #, python-brace-format
-msgid "Error processing result: {error}"
-msgstr "處理結果錯誤：{error}"
+msgid "Error creating result: {error}"
+msgstr "建立結果時出錯：{error}"
 
 #: dream-background-remover.py:98
 #, python-brace-format
 msgid "Error running Dream Background Remover: {error}"
-msgstr "執行 Dream Background Remover 時發生錯誤：{error}"
+msgstr "執行 Dream Background Remover 時出錯：{error}"
 
-#: api.py:103
+#: api.py:125
 msgid "Failed to convert result to image"
-msgstr "無法將結果轉換為圖像"
+msgstr "將結果轉換為圖像失敗"
 
-#: dialog_threads.py:123
-msgid "Failed to create new image file"
-msgstr "建立新圖像檔案失敗"
+#: dialog_threads.py:129
+msgid "Failed to create result image/layer"
+msgstr "建立結果圖像/圖層失敗"
 
-#: dialog_threads.py:139
-msgid "Failed to create new layer"
-msgstr "建立新圖層失敗"
-
-#: api.py:71
+#: api.py:93
 msgid "Failed to export image data"
 msgstr "匯出圖像資料失敗"
 
-#: dialog_gtk.py:93
+#: dialog_threads.py:95
+msgid "Failed to process image"
+msgstr "處理圖像失敗"
+
+#: dialog_gtk.py:100
 #, python-brace-format
 msgid "Get your API key from <a href=\"{url}\">Replicate</a>"
 msgstr "從 <a href=\"{url}\">Replicate</a> 取得您的 API 金鑰"
 
-#: dialog_events.py:97
-#, fuzzy
-msgid "Hide API key"
-msgstr "顯示/隱藏 API 金鑰"
-
-#: dialog_events.py:128 dream-background-remover.py:80
+#: dream-background-remover.py:80
 msgid "Invalid layer dimensions. Please select a valid layer."
-msgstr "無效的圖層尺寸。請選擇有效的圖層。"
+msgstr "無效的圖層尺寸。請選擇一個有效的圖層。"
 
-#: dialog_threads.py:131
-msgid "Layer"
-msgstr "圖層"
-
-#: api.py:114
+#: api.py:136
 msgid "Logs"
 msgstr "日誌"
 
-#: api.py:111
+#: api.py:133
 #, python-brace-format
 msgid "Model error: {error}"
 msgstr "模型錯誤：{error}"
 
-#: dialog_threads.py:126
-msgid "New image created with background removed!"
-msgstr "已建立移除背景的新圖像！"
-
-#: dialog_threads.py:142
-msgid "New layer created with background removed!"
-msgstr "已建立移除背景的新圖層！"
-
-#: api.py:59
+#: api.py:78
 msgid "No drawable provided"
 msgstr "未提供可繪製物件"
 
 #: dream-background-remover.py:68
 msgid "No image available. Please open an image first."
-msgstr ""
+msgstr "沒有可用圖像。請先開啟一個圖像。"
 
-#: api.py:99
+#: api.py:121
 msgid "No image data in API response"
 msgstr "API 回應中沒有圖像資料"
 
-#: dialog_threads.py:99
-#, fuzzy
-msgid "No image data received from API"
-msgstr "未從 API 接收到輸出"
+#: dialog_gtk.py:122
+msgid "No image selected"
+msgstr "未選擇圖像"
 
-#: dialog_threads.py:52
+#: dialog_threads.py:54
 msgid "No layer available for background removal"
 msgstr "沒有可用於背景移除的圖層"
 
-#: dialog_events.py:124 dream-background-remover.py:73
+#: dream-background-remover.py:73
 msgid "No layer selected. Please select a layer to process."
-msgstr "未選擇圖層。請選擇要處理的圖層。"
+msgstr "未選擇圖層。請選擇一個要處理的圖層。"
 
-#: api.py:91
+#: api.py:81
+msgid "No model specified"
+msgstr "未指定模型"
+
+#: api.py:113
 msgid "No output received from API"
-msgstr "未從 API 接收到輸出"
+msgstr "未收到 API 輸出"
 
-#: api.py:65 api.py:78 api.py:88 api.py:94 dialog_threads.py:155
+#: api.py:87 api.py:100 api.py:110 api.py:116 dialog_threads.py:154
 msgid "Operation cancelled"
 msgstr "操作已取消"
 
-#: dialog_gtk.py:123
+#: dialog_gtk.py:156
 msgid "Output Mode"
 msgstr "輸出模式"
 
-#: dialog_events.py:120
+#: dialog_events.py:123
 msgid "Please enter your Replicate API key"
 msgstr "請輸入您的 Replicate API 金鑰"
 
-#: dialog_events.py:137
-#, fuzzy
-msgid "Preparing image for background removal..."
-msgstr "準備上傳圖像..."
-
-#: api.py:64 dialog_threads.py:81
+#: api.py:86
 msgid "Preparing image for upload..."
 msgstr "準備上傳圖像..."
 
-#: api.py:87
+#: api.py:109
 msgid "Processing image..."
-msgstr "正在處理圖像..."
+msgstr "處理圖像中..."
 
-#: dialog.py:136 dialog_gtk.py:174 dialog_gtk.py:236
+#: dialog.py:135 dialog_gtk.py:199
 msgid "Ready"
-msgstr "準備就緒"
+msgstr "就緒"
 
-#: dialog_events.py:77 dialog_gtk.py:159
+#: dialog_events.py:74 dialog_events.py:160 dialog_gtk.py:188
 msgid "Remove Background"
 msgstr "移除背景"
-
-#: dialog.py:94
-#, python-brace-format
-msgid "Remove background from '{layer}' and create a new image file"
-msgstr "從「{layer}」移除背景並建立新圖像檔案"
-
-#: dialog.py:96
-#, python-brace-format
-msgid "Remove background from '{layer}' and create a new layer"
-msgstr "從「{layer}」移除背景並建立新圖層"
 
 #: dream-background-remover.py:52
 msgid ""
 "Remove backgrounds from images using AI. Choose to create a new layer in the "
 "current image or generate a new image file with the background removed."
 msgstr ""
-"使用 AI 從圖像中移除背景。選擇在目前圖像中建立新圖層或產生移除背景的新圖像檔"
-"案。"
+"使用 AI 從圖像中移除背景。選擇在目前圖像中建立新圖層或產生已移除背景的新圖像"
+"檔案。"
 
-#: dialog_gtk.py:70
+#: dialog_gtk.py:77
 msgid "Replicate API Key"
 msgstr "Replicate API 金鑰"
 
-#: api.py:118
+#: api.py:140
 #, python-brace-format
 msgid "Replicate API error: {error}"
 msgstr "Replicate API 錯誤：{error}"
 
-#: api.py:36
+#: api.py:42
 msgid "Replicate package not installed. Please run: pip install replicate"
-msgstr "未安裝 Replicate 套件。請執行：pip install replicate"
+msgstr "Replicate 套件未安裝。請執行：pip install replicate"
 
-#: dialog_events.py:101
-#, fuzzy
-msgid "Show API key"
-msgstr "顯示/隱藏 API 金鑰"
-
-#: dialog_gtk.py:86
+#: dialog_gtk.py:93
 msgid "Show/Hide API key"
 msgstr "顯示/隱藏 API 金鑰"
 
-#: dialog_gtk.py:106
+#: dialog_gtk.py:113
 msgid "Source Image"
 msgstr "來源圖像"
 
-#: dialog.py:53
+#: dialog_threads.py:106
 #, python-brace-format
-msgid "Source: {name} ({width}×{height}px)"
-msgstr "來源：{name} ({width}×{height}px)"
+msgid "Unexpected error during background removal: {error}"
+msgstr "背景移除過程中出現意外錯誤：{error}"
 
-#: api.py:121
+#: api.py:143
 #, python-brace-format
 msgid "Unexpected error: {error}"
 msgstr "意外錯誤：{error}"
 
-#: api.py:77
+#: api.py:99
 msgid "Uploading image to Replicate..."
-msgstr "正在上傳圖像到 Replicate..."
+msgstr "正在上傳圖像至 Replicate..."
+
+#: dialog.py:54
+#, python-brace-format
+msgid "{name} ({width}×{height}px)"
+msgstr "{name} ({width}×{height}px)"
+
+#: dialog_threads.py:113
+#, python-brace-format
+msgid "{original} (Background Removed)"
+msgstr "{original} (已移除背景)"

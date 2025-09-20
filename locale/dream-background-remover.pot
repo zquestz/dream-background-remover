@@ -1,0 +1,261 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Josh Ellithorpe
+# This file is distributed under the same license as the Dream Background Remover package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Dream Background Remover 1.0.0\n"
+"Report-Msgid-Bugs-To: quest@mac.com\n"
+"POT-Creation-Date: 2025-09-19 22:22-1000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: api.py:42
+msgid "Replicate package not installed. Please run: pip install replicate"
+msgstr ""
+
+#: api.py:45
+msgid "API key is required"
+msgstr ""
+
+#: api.py:78
+msgid "No drawable provided"
+msgstr ""
+
+#: api.py:81
+msgid "No model specified"
+msgstr ""
+
+#: api.py:86
+msgid "Preparing image for upload..."
+msgstr ""
+
+#: api.py:87 api.py:100 api.py:110 api.py:116 dialog_threads.py:154
+msgid "Operation cancelled"
+msgstr ""
+
+#: api.py:93
+msgid "Failed to export image data"
+msgstr ""
+
+#: api.py:99
+msgid "Uploading image to Replicate..."
+msgstr ""
+
+#: api.py:109
+msgid "Processing image..."
+msgstr ""
+
+#: api.py:113
+msgid "No output received from API"
+msgstr ""
+
+#: api.py:115
+msgid "Downloading result..."
+msgstr ""
+
+#: api.py:121
+msgid "No image data in API response"
+msgstr ""
+
+#: api.py:125
+msgid "Failed to convert result to image"
+msgstr ""
+
+#: api.py:128
+msgid "Background removal complete!"
+msgstr ""
+
+#: api.py:133
+#, python-brace-format
+msgid "Model error: {error}"
+msgstr ""
+
+#: api.py:136
+msgid "Logs"
+msgstr ""
+
+#: api.py:140
+#, python-brace-format
+msgid "Replicate API error: {error}"
+msgstr ""
+
+#: api.py:143
+#, python-brace-format
+msgid "Unexpected error: {error}"
+msgstr ""
+
+#: dialog.py:24
+msgid "Dream Background Remover - AI Background Removal"
+msgstr ""
+
+#: dialog.py:51
+msgid "Current Layer"
+msgstr ""
+
+#: dialog.py:54
+#, python-brace-format
+msgid "{name} ({width}×{height}px)"
+msgstr ""
+
+#: dialog.py:135 dialog_gtk.py:199
+msgid "Ready"
+msgstr ""
+
+#: dialog_events.py:74 dialog_events.py:160 dialog_gtk.py:188
+msgid "Remove Background"
+msgstr ""
+
+#: dialog_events.py:83
+msgid "Bria's Remove Background model - High Quality and More Expensive"
+msgstr ""
+
+#: dialog_events.py:85
+msgid "851 Labs Background Remover - Fast and Inexpensive"
+msgstr ""
+
+#: dialog_events.py:123
+msgid "Please enter your Replicate API key"
+msgstr ""
+
+#: dialog_gtk.py:77
+msgid "Replicate API Key"
+msgstr ""
+
+#: dialog_gtk.py:84
+msgid "Enter your Replicate API key..."
+msgstr ""
+
+#: dialog_gtk.py:93
+msgid "Show/Hide API key"
+msgstr ""
+
+#: dialog_gtk.py:100
+#, python-brace-format
+msgid "Get your API key from <a href=\"{url}\">Replicate</a>"
+msgstr ""
+
+#: dialog_gtk.py:113
+msgid "Source Image"
+msgstr ""
+
+#: dialog_gtk.py:122
+msgid "No image selected"
+msgstr ""
+
+#: dialog_gtk.py:132
+msgid "AI Model"
+msgstr ""
+
+#: dialog_gtk.py:146
+msgid "Choose the AI model for background removal"
+msgstr ""
+
+#: dialog_gtk.py:156
+msgid "Output Mode"
+msgstr ""
+
+#: dialog_gtk.py:162
+msgid "Create Layer"
+msgstr ""
+
+#: dialog_gtk.py:166
+msgid "Create File"
+msgstr ""
+
+#: dialog_gtk.py:175
+msgid "Choose how to handle the result"
+msgstr ""
+
+#: dialog_gtk.py:185
+msgid "Cancel"
+msgstr ""
+
+#: dialog_gtk.py:215
+msgid "Create a new image file with background removed"
+msgstr ""
+
+#: dialog_gtk.py:217
+msgid "Create a new layer with background removed"
+msgstr ""
+
+#: dialog_threads.py:46
+msgid "Cancelling..."
+msgstr ""
+
+#: dialog_threads.py:54
+msgid "No layer available for background removal"
+msgstr ""
+
+#: dialog_threads.py:95
+msgid "Failed to process image"
+msgstr ""
+
+#: dialog_threads.py:106
+#, python-brace-format
+msgid "Unexpected error during background removal: {error}"
+msgstr ""
+
+#: dialog_threads.py:113
+#, python-brace-format
+msgid "{original} (Background Removed)"
+msgstr ""
+
+#: dialog_threads.py:114 integrator.py:189
+msgid "Background Removed"
+msgstr ""
+
+#: dialog_threads.py:119
+msgid "Creating result..."
+msgstr ""
+
+#: dialog_threads.py:127
+msgid "Background removal completed!"
+msgstr ""
+
+#: dialog_threads.py:129
+msgid "Failed to create result image/layer"
+msgstr ""
+
+#: dialog_threads.py:133
+#, python-brace-format
+msgid "Error creating result: {error}"
+msgstr ""
+
+#: dream-background-remover.py:51
+msgid "AI-powered background removal with Replicate"
+msgstr ""
+
+#: dream-background-remover.py:52
+msgid ""
+"Remove backgrounds from images using AI. Choose to create a new layer in the "
+"current image or generate a new image file with the background removed."
+msgstr ""
+
+#: dream-background-remover.py:56
+msgid "Dream Background Remover..."
+msgstr ""
+
+#: dream-background-remover.py:68
+msgid "No image available. Please open an image first."
+msgstr ""
+
+#: dream-background-remover.py:73
+msgid "No layer selected. Please select a layer to process."
+msgstr ""
+
+#: dream-background-remover.py:80
+msgid "Invalid layer dimensions. Please select a valid layer."
+msgstr ""
+
+#: dream-background-remover.py:98
+#, python-brace-format
+msgid "Error running Dream Background Remover: {error}"
+msgstr ""

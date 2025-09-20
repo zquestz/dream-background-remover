@@ -9,11 +9,12 @@ import gi
 gi.require_version('Gtk', '3.0')
 gi.require_version('GimpUi', '3.0')
 
+from gi.repository import GimpUi
+
 from dialog_events import DreamBackgroundRemoverEventHandler
 from dialog_gtk import DreamBackgroundRemoverUI
-from gi.repository import GimpUi
 from i18n import _
-from settings import load_settings
+from settings import load_settings, DEFAULT_MODEL
 
 class DreamBackgroundRemoverDialog(GimpUi.Dialog):
     """Main dialog window for the Dream Background Remover plugin"""
@@ -50,7 +51,7 @@ class DreamBackgroundRemoverDialog(GimpUi.Dialog):
             layer_name = self.drawable.get_name() if self.drawable else _("Current Layer")
             width = self.drawable.get_width()
             height = self.drawable.get_height()
-            info_text = _("Source: {name} ({width}×{height}px)").format(
+            info_text = _("{name} ({width}×{height}px)").format(
                 name=layer_name, width=width, height=height
             )
             self.ui.source_info_label.set_text(info_text)
@@ -73,7 +74,11 @@ class DreamBackgroundRemoverDialog(GimpUi.Dialog):
                 if self.ui.layer_mode_radio:
                     self.ui.layer_mode_radio.set_active(True)
 
-            self._update_mode_description()
+            stored_model = settings.get("model", DEFAULT_MODEL)
+            if self.ui.model_combo and isinstance(stored_model, str):
+                self.ui.model_combo.set_active_id(stored_model)
+
+            self.ui.update_mode_description()
 
             try:
                 self.events.on_mode_changed(None)
@@ -83,25 +88,19 @@ class DreamBackgroundRemoverDialog(GimpUi.Dialog):
         except Exception as e:
             print(f"Error loading settings: {e}")
 
-    def _update_mode_description(self):
-        """Update the mode description based on current selection"""
-        if not self.ui.mode_description:
-            return
-
-        layer_name = self.drawable.get_name() if self.drawable else _("Current Layer")
-
-        if self.get_current_mode() == "file":
-            description = _("Remove background from '{layer}' and create a new image file").format(layer=layer_name)
-        else:
-            description = _("Remove background from '{layer}' and create a new layer").format(layer=layer_name)
-
-        self.ui.mode_description.set_text(description)
-
     def get_current_mode(self):
         """Get the currently selected mode"""
         if self.ui.file_mode_radio and self.ui.file_mode_radio.get_active():
             return "file"
         return "layer"
+
+    def get_current_model(self):
+        """Get the currently selected model"""
+        if self.ui.model_combo:
+            model_id = self.ui.model_combo.get_active_id()
+            if model_id:
+                return model_id
+        return DEFAULT_MODEL
 
     def get_api_key(self):
         """Get the API key from the UI"""

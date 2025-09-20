@@ -6,8 +6,9 @@ Event handlers for Dream Background Remover dialog
 Handles all user interactions and UI events
 """
 
-from dialog_threads import DreamBackgroundRemoverThreads
 from gi.repository import Gtk, GLib
+
+from dialog_threads import DreamBackgroundRemoverThreads
 from i18n import _
 from settings import store_settings, load_settings
 
@@ -47,6 +48,9 @@ class DreamBackgroundRemoverEventHandler:
         if self.ui.file_mode_radio:
             self.ui.file_mode_radio.connect("toggled", self.on_mode_changed)
 
+        if self.ui.model_combo:
+            self.ui.model_combo.connect("changed", self.on_model_changed)
+
         if self.ui.toggle_visibility_btn:
             self.ui.toggle_visibility_btn.connect("toggled", self.on_toggle_visibility)
 
@@ -63,128 +67,109 @@ class DreamBackgroundRemoverEventHandler:
         if not self.ui.layer_mode_radio or not self.drawable:
             return
 
-        layer_name = self.drawable.get_name() if self.drawable else _("Current Layer")
         is_file_mode = self.ui.file_mode_radio and self.ui.file_mode_radio.get_active()
-
-        self.ui.update_mode_description(layer_name, is_file_mode)
-
-        self.dialog._update_mode_description()
+        self.ui.update_mode_description(is_file_mode)
 
         if self.ui.remove_background_btn:
-            if is_file_mode:
-                self.ui.remove_background_btn.set_label(_("Create New Image"))
-            else:
-                self.ui.remove_background_btn.set_label(_("Remove Background"))
+            self.ui.remove_background_btn.set_label(_("Remove Background"))
+
+    def on_model_changed(self, combo_box):
+        """Handle model selection changes"""
+        if not combo_box or not self.ui.model_description:
+            return
+
+        current_model = self.dialog.get_current_model()
+        if current_model == "bria":
+            description = _("Bria's Remove Background model - High Quality and More Expensive")
+        else:
+            description = _("851 Labs Background Remover - Fast and Inexpensive")
+
+        self.ui.model_description.set_markup(f'<small><i>{description}</i></small>')
 
     def update_remove_background_button_state(self):
         """Update remove background button sensitivity based on input state"""
-        if not self.ui.api_key_entry or not self.ui.remove_background_btn:
+        if not self.ui.remove_background_btn or not self.ui.api_key_entry:
             return
 
-        has_api_key = bool(self.ui.api_key_entry.get_text().strip())
-        has_drawable = self.drawable is not None
-
-        self.ui.remove_background_btn.set_sensitive(has_api_key and has_drawable)
-
-    def on_toggle_visibility(self, button):
-        """Toggle API key visibility"""
-        if not self.ui.api_key_entry:
-            return
-
-        if button.get_active():
-            self.ui.api_key_entry.set_visibility(True)
-            button.set_image(Gtk.Image.new_from_icon_name("view-reveal-symbolic", Gtk.IconSize.BUTTON))
-            button.set_tooltip_text(_("Hide API key"))
-        else:
-            self.ui.api_key_entry.set_visibility(False)
-            button.set_image(Gtk.Image.new_from_icon_name("view-conceal-symbolic", Gtk.IconSize.BUTTON))
-            button.set_tooltip_text(_("Show API key"))
+        api_key = self.ui.api_key_entry.get_text().strip()
+        self.ui.remove_background_btn.set_sensitive(bool(api_key))
 
     def on_api_key_changed(self, entry):
         """Handle API key changes"""
         self.update_remove_background_button_state()
 
-    def on_cancel(self, button):
-        """Handle cancel button"""
-        if self.threads.is_processing():
-            self.threads.cancel_processing()
+    def on_toggle_visibility(self, button):
+        """Handle API key visibility toggle"""
+        if not self.ui.api_key_entry:
             return
 
-        self.dialog.response(Gtk.ResponseType.CANCEL)
+        is_visible = button.get_active()
+        self.ui.api_key_entry.set_visibility(is_visible)
+
+        icon_name = "view-reveal-symbolic" if is_visible else "view-conceal-symbolic"
+        button.get_image().set_from_icon_name(icon_name, Gtk.IconSize.BUTTON)
+
+    def on_cancel(self, button):
+        """Handle cancel button click"""
+        if self.threads.is_processing():
+            self.threads.cancel_processing()
+        else:
+            self.dialog.response(Gtk.ResponseType.CANCEL)
 
     def on_remove_background(self, button):
-        """Handle remove background button - main AI processing entry point"""
-        api_key = self.ui.api_key_entry.get_text().strip() if self.ui.api_key_entry else ""
-
+        """Handle remove background button click"""
+        api_key = self.dialog.get_api_key()
         if not api_key:
             self.show_error(_("Please enter your Replicate API key"))
             return
 
-        if not self.drawable:
-            self.show_error(_("No layer selected. Please select a layer to process."))
-            return
+        mode = self.dialog.get_current_mode()
+        model = self.dialog.get_current_model()
 
-        if self.drawable.get_width() <= 0 or self.drawable.get_height() <= 0:
-            self.show_error(_("Invalid layer dimensions. Please select a valid layer."))
-            return
+        api_key_visible = self.dialog.get_api_key_visible()
+        store_settings(api_key, mode, api_key_visible, model)
 
-        self.store_current_settings()
-
-        is_file_mode = self.ui.file_mode_radio and self.ui.file_mode_radio.get_active()
-        mode = "file" if is_file_mode else "layer"
-
-        if self.ui.status_label:
-            self.ui.status_label.set_text(_("Preparing image for background removal..."))
-
-        self.ui.set_processing_state(True)
-
-        self.threads.start_background_removal_thread(api_key, mode)
-
-    def close_on_success(self, message=None):
-        """Close dialog after successful background removal"""
-        if message and self.ui.status_label:
-            self.ui.show_success_state(message)
-            GLib.timeout_add(1000, lambda: self.dialog.response(Gtk.ResponseType.OK))
-        else:
-            self.dialog.response(Gtk.ResponseType.OK)
-        return False
+        self.threads.start_background_removal_thread(api_key, mode, model)
 
     def show_error(self, message):
-        """Show error message"""
-        if self.ui:
-            self.ui.show_error_state(message)
-
-        dialog = Gtk.MessageDialog(
-            parent=self.dialog,
-            modal=True,
-            message_type=Gtk.MessageType.ERROR,
-            buttons=Gtk.ButtonsType.OK,
-            text=_("Background Removal Error"),
-            secondary_text=message
-        )
-        dialog.run()
-        dialog.destroy()
-
-    def set_status(self, message):
-        """Update status message"""
+        """Show error message and enable interface"""
         if self.ui.status_label:
             self.ui.status_label.set_text(message)
 
-    def update_progress(self, message, fraction=None):
-        """Update progress display"""
-        self.dialog.update_progress(message, fraction)
-
-    def hide_progress(self):
-        """Hide progress display"""
         self.dialog.hide_progress()
+        self._enable_ui()
 
-    def store_current_settings(self):
-        """Store current settings to config file"""
-        if not self.ui.api_key_entry or not self.ui.layer_mode_radio or not self.ui.toggle_visibility_btn:
-            return
+    def close_on_success(self):
+        """Close dialog on successful completion"""
+        self.dialog.response(Gtk.ResponseType.OK)
 
-        api_key = self.ui.api_key_entry.get_text().strip()
-        mode = "file" if (self.ui.file_mode_radio and self.ui.file_mode_radio.get_active()) else "layer"
-        api_key_visible = self.ui.toggle_visibility_btn.get_active()
+    def _enable_ui(self):
+        """Re-enable UI controls"""
+        if self.ui.api_key_entry:
+            self.ui.api_key_entry.set_sensitive(True)
+        if self.ui.toggle_visibility_btn:
+            self.ui.toggle_visibility_btn.set_sensitive(True)
+        if self.ui.layer_mode_radio:
+            self.ui.layer_mode_radio.set_sensitive(True)
+        if self.ui.file_mode_radio:
+            self.ui.file_mode_radio.set_sensitive(True)
+        if self.ui.model_combo:
+            self.ui.model_combo.set_sensitive(True)
+        if self.ui.remove_background_btn:
+            self.ui.remove_background_btn.set_sensitive(True)
+            self.ui.remove_background_btn.set_label(_("Remove Background"))
 
-        store_settings(api_key, mode, api_key_visible)
+    def _disable_ui(self):
+        """Disable UI controls during processing"""
+        if self.ui.api_key_entry:
+            self.ui.api_key_entry.set_sensitive(False)
+        if self.ui.toggle_visibility_btn:
+            self.ui.toggle_visibility_btn.set_sensitive(False)
+        if self.ui.layer_mode_radio:
+            self.ui.layer_mode_radio.set_sensitive(False)
+        if self.ui.file_mode_radio:
+            self.ui.file_mode_radio.set_sensitive(False)
+        if self.ui.model_combo:
+            self.ui.model_combo.set_sensitive(False)
+        if self.ui.remove_background_btn:
+            self.ui.remove_background_btn.set_sensitive(False)

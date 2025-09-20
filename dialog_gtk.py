@@ -8,9 +8,10 @@ Handles all GTK interface creation and layout
 
 import gi
 gi.require_version('Gtk', '3.0')
-
 from gi.repository import Gtk
+
 from i18n import _
+from settings import AVAILABLE_MODELS, get_model_display_name
 
 class DreamBackgroundRemoverUI:
     """Handles all GTK UI creation and layout"""
@@ -22,6 +23,9 @@ class DreamBackgroundRemoverUI:
         self.layer_mode_radio = None
         self.file_mode_radio = None
         self.mode_description = None
+
+        self.model_combo = None
+        self.model_description = None
 
         self.source_info_label = None
 
@@ -48,6 +52,9 @@ class DreamBackgroundRemoverUI:
 
             source_section = self._create_source_info_section()
             main_box.pack_start(source_section, False, False, 0)
+
+            model_section = self._create_model_section()
+            main_box.pack_start(model_section, False, False, 0)
 
             mode_section = self._create_mode_section()
             main_box.pack_start(mode_section, False, False, 0)
@@ -109,9 +116,35 @@ class DreamBackgroundRemoverUI:
 
         self.source_info_label = Gtk.Label()
         self.source_info_label.set_halign(Gtk.Align.START)
-        self.source_info_label.get_style_context().add_class("dim-label")
+        self.source_info_label.set_xalign(0.0)
+        self.source_info_label.set_justify(Gtk.Justification.LEFT)
         self.source_info_label.set_line_wrap(True)
+        self.source_info_label.set_text(_("No image selected"))
         section_box.pack_start(self.source_info_label, False, False, 0)
+
+        return section_box
+
+    def _create_model_section(self):
+        """Create model selection section"""
+        section_box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=8)
+
+        title_label = Gtk.Label()
+        title_label.set_markup(f"<b>{_('AI Model')}</b>")
+        title_label.set_halign(Gtk.Align.START)
+        section_box.pack_start(title_label, False, False, 0)
+
+        self.model_combo = Gtk.ComboBoxText()
+        for model_key in AVAILABLE_MODELS.keys():
+            display_name = get_model_display_name(model_key)
+            self.model_combo.append(model_key, display_name)
+
+        section_box.pack_start(self.model_combo, False, False, 0)
+
+        self.model_description = Gtk.Label()
+        self.model_description.set_halign(Gtk.Align.START)
+        self.model_description.set_line_wrap(True)
+        self.model_description.set_markup(f'<small><i>{_("Choose the AI model for background removal")}</i></small>')
+        section_box.pack_start(self.model_description, False, False, 0)
 
         return section_box
 
@@ -138,8 +171,8 @@ class DreamBackgroundRemoverUI:
 
         self.mode_description = Gtk.Label()
         self.mode_description.set_halign(Gtk.Align.START)
-        self.mode_description.get_style_context().add_class("dim-label")
         self.mode_description.set_line_wrap(True)
+        self.mode_description.set_text(_("Choose how to handle the result"))
         section_box.pack_start(self.mode_description, False, False, 0)
 
         return section_box
@@ -148,50 +181,40 @@ class DreamBackgroundRemoverUI:
         """Create action buttons section"""
         buttons_box = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=12)
         buttons_box.set_halign(Gtk.Align.CENTER)
-        buttons_box.set_margin_top(8)
 
-        self.cancel_btn = Gtk.Button()
-        self.cancel_btn.set_label(_("Cancel"))
-        self.cancel_btn.set_size_request(100, -1)
+        self.cancel_btn = Gtk.Button.new_with_label(_("Cancel"))
         buttons_box.pack_start(self.cancel_btn, False, False, 0)
 
-        self.remove_background_btn = Gtk.Button()
-        self.remove_background_btn.set_label(_("Remove Background"))
-        self.remove_background_btn.set_image(
-            Gtk.Image.new_from_icon_name("edit-cut-symbolic", Gtk.IconSize.BUTTON)
-        )
+        self.remove_background_btn = Gtk.Button.new_with_label(_("Remove Background"))
         self.remove_background_btn.get_style_context().add_class("suggested-action")
-        self.remove_background_btn.set_size_request(180, -1)
         buttons_box.pack_start(self.remove_background_btn, False, False, 0)
 
         return buttons_box
 
     def _create_status_section(self):
-        """Create status display section"""
-        section_box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=6)
+        """Create status and progress section"""
+        section_box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=8)
 
         self.status_label = Gtk.Label()
         self.status_label.set_text(_("Ready"))
         self.status_label.set_halign(Gtk.Align.START)
-        self.status_label.get_style_context().add_class("dim-label")
         section_box.pack_start(self.status_label, False, False, 0)
 
         self.progress_bar = Gtk.ProgressBar()
-        self.progress_bar.set_show_text(True)
         self.progress_bar.set_visible(False)
         section_box.pack_start(self.progress_bar, False, False, 0)
 
         return section_box
 
-    def update_mode_description(self, layer_name, is_file_mode=False):
+    def update_mode_description(self, is_file_mode=False):
         """Update the mode description text"""
         if not self.mode_description:
             return
 
         if is_file_mode:
-            description = _("Create a new image file with background removed from '{layer}'").format(layer=layer_name)
+            description = _("Create a new image file with background removed")
         else:
-            description = _("Create a new layer with background removed from '{layer}'").format(layer=layer_name)
+            description = _("Create a new layer with background removed")
 
         self.mode_description.set_text(description)
 
@@ -207,35 +230,7 @@ class DreamBackgroundRemoverUI:
             self.layer_mode_radio.set_sensitive(sensitive)
         if self.file_mode_radio:
             self.file_mode_radio.set_sensitive(sensitive)
+        if self.model_combo:
+            self.model_combo.set_sensitive(sensitive)
         if self.remove_background_btn:
             self.remove_background_btn.set_sensitive(sensitive)
-
-    def show_error_state(self, error_message):
-        """Show error state in the UI"""
-        if self.status_label:
-            self.status_label.set_markup(f'<span color="red">{error_message}</span>')
-
-        if self.progress_bar:
-            self.progress_bar.set_visible(False)
-
-        self.set_processing_state(False)
-
-    def show_success_state(self, success_message):
-        """Show success state in the UI"""
-        if self.status_label:
-            self.status_label.set_markup(f'<span color="green">{success_message}</span>')
-
-        if self.progress_bar:
-            self.progress_bar.set_visible(False)
-
-        self.set_processing_state(False)
-
-    def reset_status(self):
-        """Reset status display to ready state"""
-        if self.status_label:
-            self.status_label.set_text(_("Ready"))
-
-        if self.progress_bar:
-            self.progress_bar.set_visible(False)
-
-        self.set_processing_state(False)
