@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dream Background Remover 1.0.0\n"
 "Report-Msgid-Bugs-To: quest@mac.com\n"
-"POT-Creation-Date: 2025-09-23 15:40-1000\n"
+"POT-Creation-Date: 2025-09-23 16:25-1000\n"
 "PO-Revision-Date: 2025-09-19 22:22-1000\n"
 "Last-Translator: AI Assistant\n"
 "Language-Team: French\n"
@@ -15,11 +15,15 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+#: settings.py:30
+msgid "851 Labs Background Remover (Default)"
+msgstr "Suppresseur d'Arrière-plan 851 Labs (Par défaut)"
+
 #: dialog_gtk.py:114
 msgid "851 Labs Background Remover - Fast and Inexpensive"
 msgstr "Suppresseur d'arrière-plan 851 Labs - Rapide et peu coûteux"
 
-#: dialog_gtk.py:204
+#: dialog_gtk.py:205
 msgid "AI Model"
 msgstr "Modèle IA"
 
@@ -39,11 +43,15 @@ msgstr "Arrière-plan supprimé"
 msgid "Background removal complete!"
 msgstr "Suppression de l'arrière-plan terminée !"
 
+#: settings.py:31
+msgid "Bria Remove Background"
+msgstr "Bria Supprimer l'Arrière-plan"
+
 #: dialog_gtk.py:113
 msgid "Bria's Remove Background model - High Quality"
 msgstr "Modèle de suppression d'arrière-plan de Bria - Haute qualité"
 
-#: dialog_gtk.py:188
+#: dialog_gtk.py:189
 msgid "Cancel"
 msgstr "Annuler"
 
@@ -51,15 +59,15 @@ msgstr "Annuler"
 msgid "Cancelling..."
 msgstr "Annulation..."
 
-#: dialog_gtk.py:119 dialog_gtk.py:219
+#: dialog_gtk.py:120 dialog_gtk.py:220
 msgid "Choose the AI model for background removal"
 msgstr "Choisissez le modèle IA pour la suppression d'arrière-plan"
 
-#: dialog_gtk.py:242
+#: dialog_gtk.py:243
 msgid "Create File"
 msgstr "Créer un fichier"
 
-#: dialog_gtk.py:238
+#: dialog_gtk.py:239
 msgid "Create Layer"
 msgstr "Créer un calque"
 
@@ -83,7 +91,7 @@ msgstr "Dream Background Remover - Suppression d'arrière-plan IA"
 msgid "Dream Background Remover..."
 msgstr "Dream Background Remover..."
 
-#: dialog_gtk.py:157
+#: dialog_gtk.py:158
 msgid "Enter your Replicate API key..."
 msgstr "Saisissez votre clé API Replicate..."
 
@@ -113,7 +121,7 @@ msgstr "Échec de l'exportation des données d'image"
 msgid "Failed to process image"
 msgstr "Échec du traitement de l'image"
 
-#: dialog_gtk.py:173
+#: dialog_gtk.py:174
 #, python-brace-format
 msgid "Get your API key from <a href=\"{url}\">Replicate</a>"
 msgstr "Obtenez votre clé API depuis <a href=\"{url}\">Replicate</a>"
@@ -144,7 +152,7 @@ msgstr "Aucune image disponible. Veuillez d'abord ouvrir une image."
 msgid "No image data in API response"
 msgstr "Aucune donnée d'image dans la réponse API"
 
-#: dialog_gtk.py:264
+#: dialog_gtk.py:265
 msgid "No image selected"
 msgstr "Aucune image sélectionnée"
 
@@ -168,7 +176,7 @@ msgstr "Aucune sortie reçue de l'API"
 msgid "Operation cancelled"
 msgstr "Opération annulée"
 
-#: dialog_gtk.py:231
+#: dialog_gtk.py:232
 msgid "Output Mode"
 msgstr "Mode de sortie"
 
@@ -184,11 +192,19 @@ msgstr "Préparation de l'image pour le téléchargement..."
 msgid "Processing image..."
 msgstr "Traitement de l'image..."
 
-#: dialog_gtk.py:78 dialog_gtk.py:274
+#: dialog_gtk.py:78 dialog_gtk.py:275
 msgid "Ready"
 msgstr "Prêt"
 
-#: dialog_gtk.py:192
+#: settings.py:32
+msgid "Recraft Remove Background"
+msgstr "Recraft Supprimer l'Arrière-plan"
+
+#: dialog_gtk.py:116
+msgid "Recraft Remove Background - Tuned for AI"
+msgstr "Recraft Supprimer l'Arrière-plan - Optimisé pour l'IA"
+
+#: dialog_gtk.py:193
 msgid "Remove Background"
 msgstr "Supprimer l'arrière-plan"
 
@@ -201,7 +217,7 @@ msgstr ""
 "créer un nouveau calque dans l'image actuelle ou de générer un nouveau "
 "fichier image avec l'arrière-plan supprimé."
 
-#: dialog_gtk.py:148
+#: dialog_gtk.py:149
 msgid "Replicate API Key"
 msgstr "Clé API Replicate"
 
@@ -215,11 +231,11 @@ msgid "Replicate package not installed. Please run: pip install replicate"
 msgstr ""
 "Package Replicate non installé. Veuillez exécuter : pip install replicate"
 
-#: dialog_gtk.py:166
+#: dialog_gtk.py:167
 msgid "Show/Hide API key"
 msgstr "Afficher/Masquer la clé API"
 
-#: dialog_gtk.py:255
+#: dialog_gtk.py:256
 msgid "Source Image"
 msgstr "Image source"
 

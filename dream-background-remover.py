@@ -22,7 +22,7 @@ from dialog import DreamBackgroundRemoverDialog
 from i18n import _, DOMAIN
 
 PLUGIN_NAME = "dream-background-remover"
-PLUGIN_VERSION = "1.0.3"
+PLUGIN_VERSION = "1.0.4"
 PLUGIN_DESCRIPTION = "AI-powered background removal with Replicate"
 
 

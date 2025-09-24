@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dream Background Remover 1.0.0\n"
 "Report-Msgid-Bugs-To: quest@mac.com\n"
-"POT-Creation-Date: 2025-09-23 15:40-1000\n"
+"POT-Creation-Date: 2025-09-23 16:25-1000\n"
 "PO-Revision-Date: 2025-09-19 22:22-1000\n"
 "Last-Translator: AI Assistant\n"
 "Language-Team: Hindi\n"
@@ -15,11 +15,15 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+#: settings.py:30
+msgid "851 Labs Background Remover (Default)"
+msgstr "851 Labs पृष्ठभूमि हटाने वाला (डिफ़ॉल्ट)"
+
 #: dialog_gtk.py:114
 msgid "851 Labs Background Remover - Fast and Inexpensive"
 msgstr "851 Labs पृष्ठभूमि हटाने वाला - तेज़ और सस्ता"
 
-#: dialog_gtk.py:204
+#: dialog_gtk.py:205
 msgid "AI Model"
 msgstr "AI मॉडल"
 
@@ -39,11 +43,15 @@ msgstr "पृष्ठभूमि हटाई गई"
 msgid "Background removal complete!"
 msgstr "पृष्ठभूमि हटाना पूर्ण!"
 
+#: settings.py:31
+msgid "Bria Remove Background"
+msgstr "Bria पृष्ठभूमि हटाएं"
+
 #: dialog_gtk.py:113
 msgid "Bria's Remove Background model - High Quality"
 msgstr "Bria का पृष्ठभूमि हटाने वाला मॉडल - उच्च गुणवत्ता"
 
-#: dialog_gtk.py:188
+#: dialog_gtk.py:189
 msgid "Cancel"
 msgstr "रद्द करें"
 
@@ -51,15 +59,15 @@ msgstr "रद्द करें"
 msgid "Cancelling..."
 msgstr "रद्द किया जा रहा है..."
 
-#: dialog_gtk.py:119 dialog_gtk.py:219
+#: dialog_gtk.py:120 dialog_gtk.py:220
 msgid "Choose the AI model for background removal"
 msgstr "पृष्ठभूमि हटाने के लिए AI मॉडल चुनें"
 
-#: dialog_gtk.py:242
+#: dialog_gtk.py:243
 msgid "Create File"
 msgstr "फाइल बनाएं"
 
-#: dialog_gtk.py:238
+#: dialog_gtk.py:239
 msgid "Create Layer"
 msgstr "लेयर बनाएं"
 
@@ -83,7 +91,7 @@ msgstr "Dream Background Remover - AI पृष्ठभूमि हटान�
 msgid "Dream Background Remover..."
 msgstr "Dream Background Remover..."
 
-#: dialog_gtk.py:157
+#: dialog_gtk.py:158
 msgid "Enter your Replicate API key..."
 msgstr "अपनी Replicate API की दर्ज करें..."
 
@@ -113,7 +121,7 @@ msgstr "छवि डेटा निर्यात करने में व�
 msgid "Failed to process image"
 msgstr "छवि प्रसंस्करण विफल"
 
-#: dialog_gtk.py:173
+#: dialog_gtk.py:174
 #, python-brace-format
 msgid "Get your API key from <a href=\"{url}\">Replicate</a>"
 msgstr "<a href=\"{url}\">Replicate</a> से अपनी API की प्राप्त करें"
@@ -143,7 +151,7 @@ msgstr "कोई छवि उपलब्ध नहीं। कृपया �
 msgid "No image data in API response"
 msgstr "API प्रतिक्रिया में कोई छवि डेटा नहीं"
 
-#: dialog_gtk.py:264
+#: dialog_gtk.py:265
 msgid "No image selected"
 msgstr "कोई छवि चयनित नहीं"
 
@@ -167,7 +175,7 @@ msgstr "API से कोई आउटपुट प्राप्त नही�
 msgid "Operation cancelled"
 msgstr "ऑपरेशन रद्द कर दिया गया"
 
-#: dialog_gtk.py:231
+#: dialog_gtk.py:232
 msgid "Output Mode"
 msgstr "आउटपुट मोड"
 
@@ -183,11 +191,19 @@ msgstr "अपलोड के लिए छवि तैयार की जा
 msgid "Processing image..."
 msgstr "छवि प्रसंस्करण हो रहा है..."
 
-#: dialog_gtk.py:78 dialog_gtk.py:274
+#: dialog_gtk.py:78 dialog_gtk.py:275
 msgid "Ready"
 msgstr "तैयार"
 
-#: dialog_gtk.py:192
+#: settings.py:32
+msgid "Recraft Remove Background"
+msgstr "Recraft पृष्ठभूमि हटाएं"
+
+#: dialog_gtk.py:116
+msgid "Recraft Remove Background - Tuned for AI"
+msgstr "Recraft पृष्ठभूमि हटाएं - AI के लिए अनुकूलित"
+
+#: dialog_gtk.py:193
 msgid "Remove Background"
 msgstr "पृष्ठभूमि हटाएं"
 
@@ -199,7 +215,7 @@ msgstr ""
 "AI का उपयोग करके छवियों से पृष्ठभूमि हटाएं। वर्तमान छवि में एक नई लेयर बनाने या पृष्ठभूमि "
 "हटाकर एक नई छवि फाइल बनाने का विकल्प चुनें।"
 
-#: dialog_gtk.py:148
+#: dialog_gtk.py:149
 msgid "Replicate API Key"
 msgstr "Replicate API की"
 
@@ -212,11 +228,11 @@ msgstr "Replicate API त्रुटि: {error}"
 msgid "Replicate package not installed. Please run: pip install replicate"
 msgstr "Replicate पैकेज इंस्टॉल नहीं है। कृपया चलाएं: pip install replicate"
 
-#: dialog_gtk.py:166
+#: dialog_gtk.py:167
 msgid "Show/Hide API key"
 msgstr "API की दिखाएं/छुपाएं"
 
-#: dialog_gtk.py:255
+#: dialog_gtk.py:256
 msgid "Source Image"
 msgstr "स्रोत छवि"
 

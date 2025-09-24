@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dream Background Remover 1.0.0\n"
 "Report-Msgid-Bugs-To: quest@mac.com\n"
-"POT-Creation-Date: 2025-09-23 15:40-1000\n"
+"POT-Creation-Date: 2025-09-23 16:25-1000\n"
 "PO-Revision-Date: 2025-09-19 22:22-1000\n"
 "Last-Translator: AI Assistant\n"
 "Language-Team: Chinese (Simplified)\n"
@@ -15,11 +15,15 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+#: settings.py:30
+msgid "851 Labs Background Remover (Default)"
+msgstr "851 Labs 背景移除器 (默认)"
+
 #: dialog_gtk.py:114
 msgid "851 Labs Background Remover - Fast and Inexpensive"
 msgstr "851 Labs 背景移除器 - 快速且经济"
 
-#: dialog_gtk.py:204
+#: dialog_gtk.py:205
 msgid "AI Model"
 msgstr "AI 模型"
 
@@ -39,11 +43,15 @@ msgstr "背景已移除"
 msgid "Background removal complete!"
 msgstr "背景移除完成！"
 
+#: settings.py:31
+msgid "Bria Remove Background"
+msgstr "Bria移除背景"
+
 #: dialog_gtk.py:113
 msgid "Bria's Remove Background model - High Quality"
 msgstr "Bria 背景移除模型 - 高品质"
 
-#: dialog_gtk.py:188
+#: dialog_gtk.py:189
 msgid "Cancel"
 msgstr "取消"
 
@@ -51,15 +59,15 @@ msgstr "取消"
 msgid "Cancelling..."
 msgstr "取消中..."
 
-#: dialog_gtk.py:119 dialog_gtk.py:219
+#: dialog_gtk.py:120 dialog_gtk.py:220
 msgid "Choose the AI model for background removal"
 msgstr "选择用于背景移除的 AI 模型"
 
-#: dialog_gtk.py:242
+#: dialog_gtk.py:243
 msgid "Create File"
 msgstr "创建文件"
 
-#: dialog_gtk.py:238
+#: dialog_gtk.py:239
 msgid "Create Layer"
 msgstr "创建图层"
 
@@ -83,7 +91,7 @@ msgstr "Dream Background Remover - AI 背景移除"
 msgid "Dream Background Remover..."
 msgstr "Dream Background Remover..."
 
-#: dialog_gtk.py:157
+#: dialog_gtk.py:158
 msgid "Enter your Replicate API key..."
 msgstr "输入您的 Replicate API 密钥..."
 
@@ -113,7 +121,7 @@ msgstr "导出图像数据失败"
 msgid "Failed to process image"
 msgstr "处理图像失败"
 
-#: dialog_gtk.py:173
+#: dialog_gtk.py:174
 #, python-brace-format
 msgid "Get your API key from <a href=\"{url}\">Replicate</a>"
 msgstr "从 <a href=\"{url}\">Replicate</a> 获取您的 API 密钥"
@@ -143,7 +151,7 @@ msgstr "没有可用图像。请先打开一个图像。"
 msgid "No image data in API response"
 msgstr "API 响应中没有图像数据"
 
-#: dialog_gtk.py:264
+#: dialog_gtk.py:265
 msgid "No image selected"
 msgstr "未选择图像"
 
@@ -167,7 +175,7 @@ msgstr "未收到 API 输出"
 msgid "Operation cancelled"
 msgstr "操作已取消"
 
-#: dialog_gtk.py:231
+#: dialog_gtk.py:232
 msgid "Output Mode"
 msgstr "输出模式"
 
@@ -183,11 +191,19 @@ msgstr "准备上传图像..."
 msgid "Processing image..."
 msgstr "处理图像中..."
 
-#: dialog_gtk.py:78 dialog_gtk.py:274
+#: dialog_gtk.py:78 dialog_gtk.py:275
 msgid "Ready"
 msgstr "就绪"
 
-#: dialog_gtk.py:192
+#: settings.py:32
+msgid "Recraft Remove Background"
+msgstr "Recraft移除背景"
+
+#: dialog_gtk.py:116
+msgid "Recraft Remove Background - Tuned for AI"
+msgstr "Recraft 背景移除 - 为AI优化"
+
+#: dialog_gtk.py:193
 msgid "Remove Background"
 msgstr "移除背景"
 
@@ -199,7 +215,7 @@ msgstr ""
 "使用 AI 从图像中移除背景。选择在当前图像中创建新图层或生成已移除背景的新图像"
 "文件。"
 
-#: dialog_gtk.py:148
+#: dialog_gtk.py:149
 msgid "Replicate API Key"
 msgstr "Replicate API 密钥"
 
@@ -212,11 +228,11 @@ msgstr "Replicate API 错误：{error}"
 msgid "Replicate package not installed. Please run: pip install replicate"
 msgstr "Replicate 包未安装。请运行：pip install replicate"
 
-#: dialog_gtk.py:166
+#: dialog_gtk.py:167
 msgid "Show/Hide API key"
 msgstr "显示/隐藏 API 密钥"
 
-#: dialog_gtk.py:255
+#: dialog_gtk.py:256
 msgid "Source Image"
 msgstr "源图像"
 

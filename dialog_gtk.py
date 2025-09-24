@@ -112,7 +112,8 @@ class DreamBackgroundRemoverUI:
         model_descriptions = {
             "bria": _("Bria's Remove Background model - High Quality"),
             "851-labs": _("851 Labs Background Remover - "
-                          "Fast and Inexpensive")
+                          "Fast and Inexpensive"),
+            "recraft-ai": _("Recraft Remove Background - Tuned for AI")
         }
 
         description = model_descriptions.get(

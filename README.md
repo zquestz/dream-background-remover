@@ -32,7 +32,7 @@ pip install replicate
 
 2. **Extract the release**
 
-   This will create a folder named `dream-background-remover-{version}` (e.g., `dream-background-remover-1.0.3`)
+   This will create a folder named `dream-background-remover-{version}` (e.g., `dream-background-remover-1.0.4`)
 
 3. **Move to your GIMP plugins folder with the correct name:**
 
@@ -44,10 +44,10 @@ pip install replicate
    Example for Linux:
 
    ```bash
-   # Extract creates dream-background-remover-1.0.3/
-   unzip dream-background-remover-1.0.3.zip
+   # Extract creates dream-background-remover-1.0.4/
+   unzip dream-background-remover-1.0.4.zip
    # Move to correct location with correct name
-   mv dream-background-remover-1.0.3 ~/.config/GIMP/3.0/plug-ins/dream-background-remover
+   mv dream-background-remover-1.0.4 ~/.config/GIMP/3.0/plug-ins/dream-background-remover
    ```
 
 4. **Make executable** (Linux/macOS only):
@@ -163,6 +163,7 @@ If you get the **"replicate not installed"** error on macOS:
 
 - **851 Labs Background Remover**: `851-labs/background-remover` (Default - Fast and cost-effective)
 - **Bria Remove Background**: `bria/remove-background` (High quality, more expensive)
+- **Recraft Remove Background**: `recraft-ai/recraft-remove-background` (Tuned for AI, balanced performance)
 
 Users can select their preferred model in the plugin interface.
 
@@ -181,6 +182,7 @@ Users can select their preferred model in the plugin interface.
 4. **Select AI model**:
    - **851 Labs Background Remover**: Fast and cost-effective (recommended for most users)
    - **Bria Remove Background**: Higher quality results, higher cost
+   - **Recraft Remove Background**: Tuned for AI, balanced performance and cost
 5. **Select mode**:
    - **Create Layer**: Creates a layer in your current image with the background removed
    - **Create File**: Create a new image with your background removed

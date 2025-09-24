@@ -10,7 +10,9 @@ import os
 import platform
 from typing import cast, Dict, Union, Literal
 
-ModelKey = Literal["851-labs", "bria"]
+from i18n import _
+
+ModelKey = Literal["851-labs", "bria", "recraft-ai"]
 SettingsDict = Dict[str, Union[str, bool]]
 
 CONFIG_FILE_NAME = "dream-background-remover-config.json"
@@ -21,11 +23,13 @@ AVAILABLE_MODELS = {
     "851-labs": ("851-labs/background-remover:"
                  "a029dff38972b5fda4ec5d75d7d1cd25aeff621d2cf4946a41055d7db66"
                  "b80bc"),
-    "bria": "bria/remove-background"
+    "bria": "bria/remove-background",
+    "recraft-ai": "recraft-ai/recraft-remove-background"
 }
 MODEL_DISPLAY_NAMES = {
-    "851-labs": "851 Labs Background Remover (Default)",
-    "bria": "Bria Remove Background"
+    "851-labs": _("851 Labs Background Remover (Default)"),
+    "bria": _("Bria Remove Background"),
+    "recraft-ai": _("Recraft Remove Background")
 }
 
 DEFAULT_MODEL = "851-labs"
@@ -68,7 +72,7 @@ def get_model_name(model_key: ModelKey) -> str:
     Get the full model identifier from a model key.
 
     Args:
-        model_key: Short model key (e.g., "bria", "851-labs")
+        model_key: Short model key (e.g., "bria", "851-labs", "recraft-ai")
 
     Returns:
         Full model identifier for Replicate API

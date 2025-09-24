@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dream Background Remover 1.0.0\n"
 "Report-Msgid-Bugs-To: quest@mac.com\n"
-"POT-Creation-Date: 2025-09-23 15:40-1000\n"
+"POT-Creation-Date: 2025-09-23 16:25-1000\n"
 "PO-Revision-Date: 2025-09-19 22:22-1000\n"
 "Last-Translator: AI Assistant\n"
 "Language-Team: Russian\n"
@@ -15,11 +15,15 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+#: settings.py:30
+msgid "851 Labs Background Remover (Default)"
+msgstr "Удалитель Фона 851 Labs (По умолчанию)"
+
 #: dialog_gtk.py:114
 msgid "851 Labs Background Remover - Fast and Inexpensive"
 msgstr "Удаление фона 851 Labs - Быстро и недорого"
 
-#: dialog_gtk.py:204
+#: dialog_gtk.py:205
 msgid "AI Model"
 msgstr "Модель ИИ"
 
@@ -39,11 +43,15 @@ msgstr "Фон удалён"
 msgid "Background removal complete!"
 msgstr "Удаление фона завершено!"
 
+#: settings.py:31
+msgid "Bria Remove Background"
+msgstr "Bria Удалить Фон"
+
 #: dialog_gtk.py:113
 msgid "Bria's Remove Background model - High Quality"
 msgstr "Модель удаления фона Bria - Высокое качество"
 
-#: dialog_gtk.py:188
+#: dialog_gtk.py:189
 msgid "Cancel"
 msgstr "Отмена"
 
@@ -51,15 +59,15 @@ msgstr "Отмена"
 msgid "Cancelling..."
 msgstr "Отмена..."
 
-#: dialog_gtk.py:119 dialog_gtk.py:219
+#: dialog_gtk.py:120 dialog_gtk.py:220
 msgid "Choose the AI model for background removal"
 msgstr "Выберите модель ИИ для удаления фона"
 
-#: dialog_gtk.py:242
+#: dialog_gtk.py:243
 msgid "Create File"
 msgstr "Создать файл"
 
-#: dialog_gtk.py:238
+#: dialog_gtk.py:239
 msgid "Create Layer"
 msgstr "Создать слой"
 
@@ -83,7 +91,7 @@ msgstr "Dream Background Remover - Удаление фона с помощью �
 msgid "Dream Background Remover..."
 msgstr "Dream Background Remover..."
 
-#: dialog_gtk.py:157
+#: dialog_gtk.py:158
 msgid "Enter your Replicate API key..."
 msgstr "Введите ваш ключ API Replicate..."
 
@@ -113,7 +121,7 @@ msgstr "Ошибка экспорта данных изображения"
 msgid "Failed to process image"
 msgstr "Ошибка обработки изображения"
 
-#: dialog_gtk.py:173
+#: dialog_gtk.py:174
 #, python-brace-format
 msgid "Get your API key from <a href=\"{url}\">Replicate</a>"
 msgstr "Получите ваш ключ API на <a href=\"{url}\">Replicate</a>"
@@ -143,7 +151,7 @@ msgstr "Изображение недоступно. Сначала открой
 msgid "No image data in API response"
 msgstr "Нет данных изображения в ответе API"
 
-#: dialog_gtk.py:264
+#: dialog_gtk.py:265
 msgid "No image selected"
 msgstr "Изображение не выбрано"
 
@@ -167,7 +175,7 @@ msgstr "Не получен ответ от API"
 msgid "Operation cancelled"
 msgstr "Операция отменена"
 
-#: dialog_gtk.py:231
+#: dialog_gtk.py:232
 msgid "Output Mode"
 msgstr "Режим вывода"
 
@@ -183,11 +191,19 @@ msgstr "Подготовка изображения для загрузки..."
 msgid "Processing image..."
 msgstr "Обработка изображения..."
 
-#: dialog_gtk.py:78 dialog_gtk.py:274
+#: dialog_gtk.py:78 dialog_gtk.py:275
 msgid "Ready"
 msgstr "Готово"
 
-#: dialog_gtk.py:192
+#: settings.py:32
+msgid "Recraft Remove Background"
+msgstr "Recraft Удалить Фон"
+
+#: dialog_gtk.py:116
+msgid "Recraft Remove Background - Tuned for AI"
+msgstr "Recraft Удаление Фона - Настроено для ИИ"
+
+#: dialog_gtk.py:193
 msgid "Remove Background"
 msgstr "Удалить фон"
 
@@ -199,7 +215,7 @@ msgstr ""
 "Удаляйте фон с изображений с помощью ИИ. Выберите создание нового слоя в "
 "текущем изображении или генерацию нового файла изображения с удалённым фоном."
 
-#: dialog_gtk.py:148
+#: dialog_gtk.py:149
 msgid "Replicate API Key"
 msgstr "Ключ API Replicate"
 
@@ -212,11 +228,11 @@ msgstr "Ошибка API Replicate: {error}"
 msgid "Replicate package not installed. Please run: pip install replicate"
 msgstr "Пакет Replicate не установлен. Выполните: pip install replicate"
 
-#: dialog_gtk.py:166
+#: dialog_gtk.py:167
 msgid "Show/Hide API key"
 msgstr "Показать/Скрыть ключ API"
 
-#: dialog_gtk.py:255
+#: dialog_gtk.py:256
 msgid "Source Image"
 msgstr "Исходное изображение"
 
