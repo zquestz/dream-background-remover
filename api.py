@@ -26,7 +26,9 @@ try:
     REPLICATE_AVAILABLE = True
 except ImportError:
     REPLICATE_AVAILABLE = False
-    print("Warning: replicate package not installed. Run: pip install replicate")
+    print("Warning: replicate package not installed. "
+          "Run: pip install replicate")
+
 
 class ReplicateAPI:
     """Handles Replicate API communication for background removal"""
@@ -39,7 +41,10 @@ class ReplicateAPI:
             api_key (str): Replicate API key from user settings
         """
         if not REPLICATE_AVAILABLE:
-            raise ImportError(_("Replicate package not installed. Please run: pip install replicate"))
+            raise ImportError(_(
+                "Replicate package not installed. "
+                "Please run: pip install replicate"
+            ))
 
         if not api_key or not api_key.strip():
             raise ValueError(_("API key is required"))
@@ -51,14 +56,17 @@ class ReplicateAPI:
         self,
         drawable: Gimp.Drawable,
         model_name: str,
-        progress_callback: Optional[Callable[[str, Optional[float]], bool]] = None
+        progress_callback: Optional[Callable[
+            [str, Optional[float]], bool
+        ]] = None
     ) -> Tuple[Optional[GdkPixbuf.Pixbuf], Optional[str]]:
         """
         Remove background from a GIMP drawable using Replicate API
 
         Args:
             drawable (Gimp.Drawable): GIMP drawable to process
-            model_name (str): The Replicate model identifier (e.g., "bria/remove-background")
+            model_name (str): The Replicate model identifier
+                (e.g., "bria/remove-background")
             progress_callback (callable, optional): Progress callback function.
                 Called with (message: str, percentage: float | None).
                 Should return True to continue, False to cancel.
@@ -82,7 +90,9 @@ class ReplicateAPI:
         temp_path = None
 
         try:
-            if progress_callback and not progress_callback(_("Preparing image for upload..."), PROGRESS_PREPARE):
+            if progress_callback and not progress_callback(
+                _("Preparing image for upload..."), PROGRESS_PREPARE
+            ):
                 return None, _("Operation cancelled")
 
             from integrator import export_drawable_to_bytes
@@ -91,11 +101,15 @@ class ReplicateAPI:
             if not image_bytes:
                 return None, _("Failed to export image data")
 
-            with tempfile.NamedTemporaryFile(suffix='.png', delete=False) as temp_file:
+            with tempfile.NamedTemporaryFile(
+                suffix='.png', delete=False
+            ) as temp_file:
                 temp_path = temp_file.name
                 temp_file.write(image_bytes)
 
-            if progress_callback and not progress_callback(_("Uploading image to Replicate..."), PROGRESS_UPLOAD):
+            if progress_callback and not progress_callback(
+                _("Uploading image to Replicate..."), PROGRESS_UPLOAD
+            ):
                 return None, _("Operation cancelled")
 
             with open(temp_path, 'rb') as image_file:
@@ -105,13 +119,17 @@ class ReplicateAPI:
                         input={"image": image_file}
                     )
 
-                    if progress_callback and not progress_callback(_("Processing image..."), PROGRESS_PROCESS):
+                    if progress_callback and not progress_callback(
+                        _("Processing image..."), PROGRESS_PROCESS
+                    ):
                         return None, _("Operation cancelled")
 
                     if not output:
                         return None, _("No output received from API")
 
-                    if progress_callback and not progress_callback(_("Downloading result..."), PROGRESS_DOWNLOAD):
+                    if progress_callback and not progress_callback(
+                        _("Downloading result..."), PROGRESS_DOWNLOAD
+                    ):
                         return None, _("Operation cancelled")
 
                     result_bytes = b''.join(chunk for chunk in output)
@@ -124,7 +142,10 @@ class ReplicateAPI:
                         return None, _("Failed to convert result to image")
 
                     if progress_callback:
-                        progress_callback(_("Background removal complete!"), PROGRESS_COMPLETE)
+                        progress_callback(
+                            _("Background removal complete!"),
+                            PROGRESS_COMPLETE
+                        )
 
                     return pixbuf, None
 
@@ -136,10 +157,13 @@ class ReplicateAPI:
                     return None, error_msg
 
                 except ReplicateError as e:
-                    return None, _("Replicate API error: {error}").format(error=str(e))
+                    return None, _("Replicate API error: {error}").format(
+                        error=str(e)
+                    )
 
         except Exception as e:
-            return None, _("Unexpected error: {error}").format(error=str(e))
+            return None, _("Unexpected error: {error}").format(
+                error=str(e))
 
         finally:
             if temp_path and os.path.exists(temp_path):
@@ -148,7 +172,8 @@ class ReplicateAPI:
                 except (OSError, FileNotFoundError):
                     pass
 
-    def _bytes_to_pixbuf(self, image_bytes: bytes) -> Optional[GdkPixbuf.Pixbuf]:
+    def _bytes_to_pixbuf(self, image_bytes: bytes) -> \
+            Optional[GdkPixbuf.Pixbuf]:
         """
         Convert image bytes to GdkPixbuf
 

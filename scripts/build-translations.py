@@ -11,6 +11,7 @@ import subprocess
 import sys
 from pathlib import Path
 
+
 def compile_translations() -> bool:
     """Compile all .po files to .mo files"""
 
@@ -22,7 +23,8 @@ def compile_translations() -> bool:
         print("No locale directory found!")
         return False
 
-    po_files = [f for f in locale_dir.iterdir() if f.is_file() and f.suffix == '.po']
+    po_files = [f for f in locale_dir.iterdir()
+                if f.is_file() and f.suffix == '.po']
 
     if not po_files:
         print("No .po files found in locale/ directory")
@@ -52,8 +54,10 @@ def compile_translations() -> bool:
             print("✗ msgfmt not found. Please install gettext tools.")
             return False
 
-    print(f"\nCompilation complete: {success_count}/{len(po_files)} files compiled successfully")
+    print(f"\nCompilation complete: {success_count}/{len(po_files)} "
+          f"files compiled successfully")
     return success_count > 0
+
 
 def create_template_files() -> bool:
     """Create template .po files from .pot for manual language setup"""
@@ -69,6 +73,7 @@ def create_template_files() -> bool:
     print("  # Edit locale/[LANG].po with your translations")
     print("  python3 scripts/build-translations.py")
     return True
+
 
 if __name__ == '__main__':
     if len(sys.argv) > 1 and sys.argv[1] == '--init':

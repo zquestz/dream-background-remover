@@ -15,6 +15,7 @@ from api import ReplicateAPI
 from i18n import _
 from settings import get_model_name
 
+
 class DreamBackgroundRemoverThreads:
     """Handles all background threading operations"""
 
@@ -80,7 +81,9 @@ class DreamBackgroundRemoverThreads:
                 GLib.idle_add(self.ui.update_status, message, percentage)
                 return True
 
-            pixbuf, error = api.remove_background(self.drawable, model_name, progress_callback)
+            pixbuf, error = api.remove_background(
+                self.drawable, model_name, progress_callback
+            )
 
             if self._cancel_requested:
                 GLib.idle_add(self._handle_cancelled)
@@ -100,14 +103,16 @@ class DreamBackgroundRemoverThreads:
         except (ImportError, ValueError) as e:
             GLib.idle_add(self._handle_error, str(e))
         except Exception as e:
-            error_msg = _("Unexpected error during background removal: {error}").format(error=str(e))
+            error_msg = _("Unexpected error during background removal: "
+                          "{error}").format(error=str(e))
             GLib.idle_add(self._handle_error, error_msg)
 
     def _generate_layer_name(self):
         """Generate a name for the new layer"""
         if self.drawable:
             original_name = self.drawable.get_name()
-            return _("{original} (Background Removed)").format(original=original_name)
+            return _("{original} (Background Removed)").format(
+                original=original_name)
         return _("Background Removed")
 
     def _handle_cancelled(self):
@@ -130,18 +135,24 @@ class DreamBackgroundRemoverThreads:
             self.ui.update_status(_("Creating result..."), 0.95)
 
             if mode == "file":
-                result = integrator.create_new_image_with_layer(pixbuf, layer_name)
+                result = integrator.create_new_image_with_layer(
+                    pixbuf, layer_name)
             else:
-                result = integrator.create_scaled_layer(self.image, pixbuf, layer_name)
+                result = integrator.create_scaled_layer(
+                    self.image, pixbuf, layer_name)
 
             if result:
-                self.ui.update_status(_("Background removal completed!"), 1.0)
+                self.ui.update_status(
+                    _("Background removal complete!"), 1.0
+                )
             else:
                 self._handle_error(_("Failed to create result image/layer"))
                 return
 
         except Exception as e:
-            error_msg = _("Error creating result: {error}").format(error=str(e))
+            error_msg = _("Error creating result: {error}").format(
+                error=str(e)
+            )
             self._handle_error(error_msg)
             return
 

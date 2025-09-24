@@ -18,7 +18,9 @@ GIMP_VERSION = "3.0"
 FILE_PERMISSIONS = 0o600
 
 AVAILABLE_MODELS = {
-    "851-labs": "851-labs/background-remover:a029dff38972b5fda4ec5d75d7d1cd25aeff621d2cf4946a41055d7db66b80bc",
+    "851-labs": ("851-labs/background-remover:"
+                 "a029dff38972b5fda4ec5d75d7d1cd25aeff621d2cf4946a41055d7db66"
+                 "b80bc"),
     "bria": "bria/remove-background"
 }
 MODEL_DISPLAY_NAMES = {
@@ -35,6 +37,7 @@ DEFAULT_SETTINGS: SettingsDict = {
     "api_key_visible": DEFAULT_API_KEY_VISIBLE,
     "model": DEFAULT_MODEL
 }
+
 
 def get_config_file() -> str:
     """Get path to config file in GIMP's user directory"""
@@ -54,9 +57,11 @@ def get_config_file() -> str:
 
     return os.path.join(gimp_dir, CONFIG_FILE_NAME)
 
+
 def get_model_display_name(model_key: str) -> str:
     """Get a user-friendly display name for the model"""
     return MODEL_DISPLAY_NAMES.get(model_key, model_key)
+
 
 def get_model_name(model_key: ModelKey) -> str:
     """
@@ -75,6 +80,7 @@ def get_model_name(model_key: ModelKey) -> str:
         "851-labs/background-remover:a029dff38972b5fda4ec5d75d7d1cd25aeff621d2cf4946a41055d7db66b80bc"
     """
     return AVAILABLE_MODELS.get(model_key, AVAILABLE_MODELS[DEFAULT_MODEL])
+
 
 def load_settings() -> SettingsDict:
     """Load settings from config file"""
@@ -96,16 +102,20 @@ def load_settings() -> SettingsDict:
 
     return DEFAULT_SETTINGS.copy()
 
-def store_settings(api_key: str, mode: str, api_key_visible: bool, model: str = DEFAULT_MODEL) -> None:
+
+def store_settings(api_key: str, mode: str, api_key_visible: bool,
+                   model: str = DEFAULT_MODEL) -> None:
     """Store settings to config file"""
     if mode not in ("layer", "file"):
         raise ValueError(f"Invalid mode: {mode}. Must be 'layer' or 'file'")
 
     if model not in AVAILABLE_MODELS:
-        print(f"Warning: Unknown model '{model}', using default '{DEFAULT_MODEL}'")
+        print(f"Warning: Unknown model '{model}', using default "
+              f"'{DEFAULT_MODEL}'")
         model = DEFAULT_MODEL
 
     try:
+        config_file = get_config_file()
         settings = {
             "api_key": api_key,
             "mode": mode,
@@ -113,13 +123,10 @@ def store_settings(api_key: str, mode: str, api_key_visible: bool, model: str = 
             "model": model
         }
 
-        config_file = get_config_file()
-
         with open(config_file, 'w', encoding='utf-8') as f:
             json.dump(settings, f, indent=2)
 
-        if platform.system() != "Windows":
-            os.chmod(config_file, FILE_PERMISSIONS)
+        os.chmod(config_file, FILE_PERMISSIONS)
 
     except (OSError, PermissionError) as e:
         print(f"Failed to store settings: {e}")
@@ -128,18 +135,23 @@ def store_settings(api_key: str, mode: str, api_key_visible: bool, model: str = 
     except Exception as e:
         print(f"Unexpected error storing settings: {e}")
 
+
 def _get_linux_config_dir() -> str:
     """Get Linux config directory"""
-    return os.path.join(os.path.expanduser("~"), '.config', 'GIMP', GIMP_VERSION)
+    return os.path.join(os.path.expanduser("~"), '.config', 'GIMP',
+                        GIMP_VERSION)
+
 
 def _get_macos_config_dir() -> str:
     """Get macOS config directory"""
     home = os.path.expanduser("~")
-    return os.path.join(home, 'Library', 'Application Support', 'GIMP', GIMP_VERSION)
+    return os.path.join(home, "Library", "Application Support", "GIMP",
+                        GIMP_VERSION)
+
 
 def _get_windows_config_dir() -> str:
     """Get Windows config directory"""
     appdata = os.environ.get('APPDATA')
     if not appdata:
         appdata = os.path.expanduser("~\\AppData\\Roaming")
-    return os.path.join(appdata, 'GIMP', GIMP_VERSION)
+    return os.path.join(appdata, "GIMP", GIMP_VERSION)

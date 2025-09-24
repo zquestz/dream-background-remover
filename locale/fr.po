@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dream Background Remover 1.0.0\n"
 "Report-Msgid-Bugs-To: quest@mac.com\n"
-"POT-Creation-Date: 2025-09-20 12:58-1000\n"
+"POT-Creation-Date: 2025-09-23 15:40-1000\n"
 "PO-Revision-Date: 2025-09-19 22:22-1000\n"
 "Last-Translator: AI Assistant\n"
 "Language-Team: French\n"
@@ -15,188 +15,184 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: dialog_gtk.py:112
+#: dialog_gtk.py:114
 msgid "851 Labs Background Remover - Fast and Inexpensive"
 msgstr "Suppresseur d'arrière-plan 851 Labs - Rapide et peu coûteux"
 
-#: dialog_gtk.py:193
+#: dialog_gtk.py:204
 msgid "AI Model"
 msgstr "Modèle IA"
 
-#: dream-background-remover.py:45
+#: dream-background-remover.py:47
 msgid "AI-powered background removal with Replicate"
 msgstr "Suppression d'arrière-plan alimentée par l'IA avec Replicate"
 
-#: api.py:45
+#: api.py:50
 msgid "API key is required"
 msgstr "Clé API requise"
 
-#: dialog_threads.py:111 integrator.py:189
+#: dialog_threads.py:116 integrator.py:198
 msgid "Background Removed"
 msgstr "Arrière-plan supprimé"
 
-#: api.py:127
+#: api.py:146 dialog_threads.py:146
 msgid "Background removal complete!"
 msgstr "Suppression de l'arrière-plan terminée !"
 
-#: dialog_threads.py:138
-msgid "Background removal completed!"
-msgstr "Suppression d'arrière-plan terminée !"
-
-#: dialog_gtk.py:111
+#: dialog_gtk.py:113
 msgid "Bria's Remove Background model - High Quality"
 msgstr "Modèle de suppression d'arrière-plan de Bria - Haute qualité"
 
-#: dialog_gtk.py:179
+#: dialog_gtk.py:188
 msgid "Cancel"
 msgstr "Annuler"
 
-#: dialog_threads.py:35
+#: dialog_threads.py:36
 msgid "Cancelling..."
 msgstr "Annulation..."
 
-#: dialog_gtk.py:115 dialog_gtk.py:207
+#: dialog_gtk.py:119 dialog_gtk.py:219
 msgid "Choose the AI model for background removal"
 msgstr "Choisissez le modèle IA pour la suppression d'arrière-plan"
 
-#: dialog_gtk.py:227
+#: dialog_gtk.py:242
 msgid "Create File"
 msgstr "Créer un fichier"
 
-#: dialog_gtk.py:223
+#: dialog_gtk.py:238
 msgid "Create Layer"
 msgstr "Créer un calque"
 
-#: dialog_threads.py:130
+#: dialog_threads.py:135
 msgid "Creating result..."
 msgstr "Création du résultat..."
 
-#: dialog.py:101
+#: dialog.py:105
 msgid "Current Layer"
 msgstr "Calque actuel"
 
-#: api.py:114
+#: api.py:131
 msgid "Downloading result..."
 msgstr "Téléchargement du résultat..."
 
-#: dialog.py:24
+#: dialog.py:25
 msgid "Dream Background Remover - AI Background Removal"
 msgstr "Dream Background Remover - Suppression d'arrière-plan IA"
 
-#: dream-background-remover.py:50
+#: dream-background-remover.py:53
 msgid "Dream Background Remover..."
 msgstr "Dream Background Remover..."
 
-#: dialog_gtk.py:150
+#: dialog_gtk.py:157
 msgid "Enter your Replicate API key..."
 msgstr "Saisissez votre clé API Replicate..."
 
-#: dialog_threads.py:144
+#: dialog_threads.py:153
 #, python-brace-format
 msgid "Error creating result: {error}"
 msgstr "Erreur lors de la création du résultat : {error}"
 
-#: dream-background-remover.py:100
+#: dream-background-remover.py:119
 #, python-brace-format
 msgid "Error running Dream Background Remover: {error}"
 msgstr "Erreur lors de l'exécution de Dream Background Remover : {error}"
 
-#: api.py:124
+#: api.py:142
 msgid "Failed to convert result to image"
 msgstr "Échec de la conversion du résultat en image"
 
-#: dialog_threads.py:140
+#: dialog_threads.py:149
 msgid "Failed to create result image/layer"
 msgstr "Échec de la création de l'image/calque de résultat"
 
-#: api.py:92
+#: api.py:102
 msgid "Failed to export image data"
 msgstr "Échec de l'exportation des données d'image"
 
-#: dialog_threads.py:94
+#: dialog_threads.py:97
 msgid "Failed to process image"
 msgstr "Échec du traitement de l'image"
 
-#: dialog_gtk.py:166
+#: dialog_gtk.py:173
 #, python-brace-format
 msgid "Get your API key from <a href=\"{url}\">Replicate</a>"
 msgstr "Obtenez votre clé API depuis <a href=\"{url}\">Replicate</a>"
 
-#: dream-background-remover.py:82
+#: dream-background-remover.py:93
 msgid "Invalid layer dimensions. Please select a valid layer."
 msgstr ""
 "Dimensions de calque invalides. Veuillez sélectionner un calque valide."
 
-#: api.py:135
+#: api.py:156
 msgid "Logs"
 msgstr "Journaux"
 
-#: api.py:132
+#: api.py:153
 #, python-brace-format
 msgid "Model error: {error}"
 msgstr "Erreur du modèle : {error}"
 
-#: api.py:77
+#: api.py:85
 msgid "No drawable provided"
 msgstr "Aucun élément dessinable fourni"
 
-#: dream-background-remover.py:70
+#: dream-background-remover.py:75
 msgid "No image available. Please open an image first."
 msgstr "Aucune image disponible. Veuillez d'abord ouvrir une image."
 
-#: api.py:120
+#: api.py:138
 msgid "No image data in API response"
 msgstr "Aucune donnée d'image dans la réponse API"
 
-#: dialog_gtk.py:249
+#: dialog_gtk.py:264
 msgid "No image selected"
 msgstr "Aucune image sélectionnée"
 
-#: dialog_threads.py:53
+#: dialog_threads.py:54
 msgid "No layer available for background removal"
 msgstr "Aucun calque disponible pour la suppression d'arrière-plan"
 
-#: dream-background-remover.py:75
+#: dream-background-remover.py:83
 msgid "No layer selected. Please select a layer to process."
 msgstr "Aucun calque sélectionné. Veuillez sélectionner un calque à traiter."
 
-#: api.py:80
+#: api.py:88
 msgid "No model specified"
 msgstr "Aucun modèle spécifié"
 
-#: api.py:112
+#: api.py:128
 msgid "No output received from API"
 msgstr "Aucune sortie reçue de l'API"
 
-#: api.py:86 api.py:99 api.py:109 api.py:115 dialog_threads.py:116
+#: api.py:96 api.py:113 api.py:125 api.py:133 dialog_threads.py:121
 msgid "Operation cancelled"
 msgstr "Opération annulée"
 
-#: dialog_gtk.py:217
+#: dialog_gtk.py:231
 msgid "Output Mode"
 msgstr "Mode de sortie"
 
-#: dialog_events.py:87
+#: dialog_events.py:90
 msgid "Please enter your Replicate API key"
 msgstr "Veuillez saisir votre clé API Replicate"
 
-#: api.py:85
+#: api.py:94
 msgid "Preparing image for upload..."
 msgstr "Préparation de l'image pour le téléchargement..."
 
-#: api.py:108
+#: api.py:123
 msgid "Processing image..."
 msgstr "Traitement de l'image..."
 
-#: dialog_gtk.py:77 dialog_gtk.py:259
+#: dialog_gtk.py:78 dialog_gtk.py:274
 msgid "Ready"
 msgstr "Prêt"
 
-#: dialog_gtk.py:182
+#: dialog_gtk.py:192
 msgid "Remove Background"
 msgstr "Supprimer l'arrière-plan"
 
-#: dream-background-remover.py:46
+#: dream-background-remover.py:48
 msgid ""
 "Remove backgrounds from images using AI. Choose to create a new layer in the "
 "current image or generate a new image file with the background removed."
@@ -205,57 +201,48 @@ msgstr ""
 "créer un nouveau calque dans l'image actuelle ou de générer un nouveau "
 "fichier image avec l'arrière-plan supprimé."
 
-#: dialog_gtk.py:143
+#: dialog_gtk.py:148
 msgid "Replicate API Key"
 msgstr "Clé API Replicate"
 
-#: api.py:139
+#: api.py:160
 #, python-brace-format
 msgid "Replicate API error: {error}"
 msgstr "Erreur API Replicate : {error}"
 
-#: api.py:42
+#: api.py:45
 msgid "Replicate package not installed. Please run: pip install replicate"
 msgstr ""
 "Package Replicate non installé. Veuillez exécuter : pip install replicate"
 
-#: dialog_gtk.py:159
+#: dialog_gtk.py:166
 msgid "Show/Hide API key"
 msgstr "Afficher/Masquer la clé API"
 
-#: dialog_gtk.py:240
+#: dialog_gtk.py:255
 msgid "Source Image"
 msgstr "Image source"
 
-#: dialog_threads.py:103
+#: dialog_threads.py:106
 #, python-brace-format
 msgid "Unexpected error during background removal: {error}"
 msgstr "Erreur inattendue lors de la suppression d'arrière-plan : {error}"
 
-#: api.py:142
+#: api.py:165
 #, python-brace-format
 msgid "Unexpected error: {error}"
 msgstr "Erreur inattendue : {error}"
 
-#: api.py:98
+#: api.py:111
 msgid "Uploading image to Replicate..."
 msgstr "Téléchargement de l'image vers Replicate..."
 
-#: dialog.py:104
+#: dialog.py:108
 #, python-brace-format
 msgid "{name} ({width}×{height}px)"
 msgstr "{name} ({width}×{height}px)"
 
-#: dialog_threads.py:110
+#: dialog_threads.py:114
 #, python-brace-format
 msgid "{original} (Background Removed)"
 msgstr "{original} (Arrière-plan supprimé)"
-
-#~ msgid "Choose how to handle the result"
-#~ msgstr "Choisissez comment traiter le résultat"
-
-#~ msgid "Create a new image file with background removed"
-#~ msgstr "Créer un nouveau fichier image avec l'arrière-plan supprimé"
-
-#~ msgid "Create a new layer with background removed"
-#~ msgstr "Créer un nouveau calque avec l'arrière-plan supprimé"

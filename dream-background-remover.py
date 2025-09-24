@@ -3,7 +3,8 @@
 
 """
 Dream Background Remover - AI Background Removal GIMP Plugin
-A GIMP plugin for AI-powered background removal using Replicate's background removal API
+A GIMP plugin for AI-powered background removal using Replicate's
+background removal API
 """
 
 import gi
@@ -21,8 +22,9 @@ from dialog import DreamBackgroundRemoverDialog
 from i18n import _, DOMAIN
 
 PLUGIN_NAME = "dream-background-remover"
-PLUGIN_VERSION = "1.0.2"
+PLUGIN_VERSION = "1.0.3"
 PLUGIN_DESCRIPTION = "AI-powered background removal with Replicate"
+
 
 class DreamBackgroundRemover(Gimp.PlugIn):
     """Main plugin class"""
@@ -43,12 +45,14 @@ class DreamBackgroundRemover(Gimp.PlugIn):
             )
             procedure.set_documentation(
                 _("AI-powered background removal with Replicate"),
-                _("Remove backgrounds from images using AI. Choose to create a new layer "
-                  "in the current image or generate a new image file with the background removed."),
+                _("Remove backgrounds from images using AI. Choose to create "
+                  "a new layer in the current image or generate a new image "
+                  "file with the background removed."),
                 name
             )
             procedure.set_menu_label(_("Dream Background Remover..."))
-            procedure.set_attribution("Josh Ellithorpe", "Josh Ellithorpe", "2025")
+            procedure.set_attribution("Josh Ellithorpe",
+                                      "Josh Ellithorpe", "2025")
             procedure.add_menu_path("<Image>/Filters/AI")
 
             return procedure
@@ -62,47 +66,68 @@ class DreamBackgroundRemover(Gimp.PlugIn):
         """Enable localization"""
         return DOMAIN
 
-    def run_dream_background_remover(self, procedure, run_mode, image, drawables, _config, _run_data):
+    def run_dream_background_remover(self, procedure, run_mode, image,
+                                     drawables, _config, _run_data):
         """Run the Dream Background Remover plugin"""
         if run_mode == Gimp.RunMode.INTERACTIVE:
             try:
                 if not image:
-                    error_msg = _("No image available. Please open an image first.")
+                    error_msg = _("No image available. Please open an "
+                                  "image first.")
                     Gimp.message(error_msg)
-                    return procedure.new_return_values(Gimp.PDBStatusType.EXECUTION_ERROR, GLib.Error())
+                    return procedure.new_return_values(
+                        Gimp.PDBStatusType.EXECUTION_ERROR, GLib.Error()
+                    )
 
                 if not drawables or len(drawables) == 0:
-                    error_msg = _("No layer selected. Please select a layer to process.")
+                    error_msg = _("No layer selected. Please select a layer "
+                                  "to process.")
                     Gimp.message(error_msg)
-                    return procedure.new_return_values(Gimp.PDBStatusType.EXECUTION_ERROR, GLib.Error())
+                    return procedure.new_return_values(
+                        Gimp.PDBStatusType.CANCEL, GLib.Error()
+                    )
 
                 drawable = drawables[0]
 
                 if drawable.get_width() <= 0 or drawable.get_height() <= 0:
-                    error_msg = _("Invalid layer dimensions. Please select a valid layer.")
+                    error_msg = _("Invalid layer dimensions. Please select "
+                                  "a valid layer.")
                     Gimp.message(error_msg)
-                    return procedure.new_return_values(Gimp.PDBStatusType.EXECUTION_ERROR, GLib.Error())
+                    return procedure.new_return_values(
+                        Gimp.PDBStatusType.CANCEL, GLib.Error()
+                    )
 
                 GimpUi.init("dream-background-remover")
 
-                dialog = DreamBackgroundRemoverDialog(procedure, image, drawable)
+                dialog = DreamBackgroundRemoverDialog(procedure, image,
+                                                      drawable)
                 dialog.show_all()
 
                 response = dialog.run()
                 dialog.destroy()
 
                 if response == Gtk.ResponseType.OK:
-                    return procedure.new_return_values(Gimp.PDBStatusType.SUCCESS, GLib.Error())
+                    return procedure.new_return_values(
+                        Gimp.PDBStatusType.SUCCESS, GLib.Error()
+                    )
                 else:
-                    return procedure.new_return_values(Gimp.PDBStatusType.CANCEL, GLib.Error())
+                    return procedure.new_return_values(
+                        Gimp.PDBStatusType.CANCEL, GLib.Error()
+                    )
 
             except Exception as e:
-                error_msg = _("Error running Dream Background Remover: {error}").format(error=str(e))
+                error_msg = _("Error running Dream Background Remover: "
+                              "{error}").format(error=str(e))
                 print(error_msg)
                 Gimp.message(error_msg)
-                return procedure.new_return_values(Gimp.PDBStatusType.EXECUTION_ERROR, GLib.Error())
+                return procedure.new_return_values(
+                    Gimp.PDBStatusType.EXECUTION_ERROR, GLib.Error()
+                )
 
-        return procedure.new_return_values(Gimp.PDBStatusType.SUCCESS, GLib.Error())
+        return procedure.new_return_values(
+            Gimp.PDBStatusType.SUCCESS, GLib.Error()
+        )
+
 
 if __name__ == '__main__':
     Gimp.main(DreamBackgroundRemover.__gtype__, sys.argv)

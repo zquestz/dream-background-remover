@@ -14,6 +14,7 @@ from i18n import _
 
 MAX_LAYER_NAME_LENGTH = 64
 
+
 def create_new_image_with_layer(pixbuf, layer_name):
     """
     Create a new GIMP image with background removed content
@@ -61,13 +62,15 @@ def create_new_image_with_layer(pixbuf, layer_name):
         print(f"Error creating new image: {e}")
         return None
 
+
 def create_scaled_layer(image, pixbuf, layer_name):
     """
     Create a new layer with pixbuf content, scaled to match image dimensions
 
     Args:
         image (Gimp.Image): Existing image to add layer to
-        pixbuf (GdkPixbuf.Pixbuf): Pixbuf content for the layer (will be scaled if needed)
+        pixbuf (GdkPixbuf.Pixbuf): Pixbuf content for the layer
+            (will be scaled if needed)
         layer_name (str): Name for the new layer
 
     Returns:
@@ -88,7 +91,9 @@ def create_scaled_layer(image, pixbuf, layer_name):
         pixbuf_height = pixbuf.get_height()
 
         if pixbuf_width != img_width or pixbuf_height != img_height:
-            pixbuf = pixbuf.scale_simple(img_width, img_height, GdkPixbuf.InterpType.BILINEAR)
+            pixbuf = pixbuf.scale_simple(
+                img_width, img_height, GdkPixbuf.InterpType.BILINEAR
+            )
 
         if not pixbuf.get_has_alpha():
             pixbuf = pixbuf.add_alpha(False, 0, 0, 0)
@@ -114,6 +119,7 @@ def create_scaled_layer(image, pixbuf, layer_name):
     except Exception as e:
         print(f"Error creating background removed layer: {e}")
         return None
+
 
 def export_drawable_to_bytes(drawable):
     """
@@ -141,7 +147,9 @@ def export_drawable_to_bytes(drawable):
         duplicate = image.duplicate()
         duplicate.flatten()
 
-        with tempfile.NamedTemporaryFile(suffix='.png', delete=False) as temp_file:
+        with tempfile.NamedTemporaryFile(
+            suffix='.png', delete=False
+        ) as temp_file:
             temp_path = temp_file.name
 
         temp_gfile = Gio.File.new_for_path(temp_path)
@@ -172,8 +180,9 @@ def export_drawable_to_bytes(drawable):
         if temp_path:
             try:
                 os.remove(temp_path)
-            except:
+            except Exception:
                 pass
+
 
 def _truncate_layer_name(name):
     """

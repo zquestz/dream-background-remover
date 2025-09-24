@@ -12,18 +12,19 @@ from typing import Callable
 
 DOMAIN = "dream-background-remover"
 
+
 def setup_i18n() -> Callable[[str], str]:
     """Initialize internationalization support"""
     plugin_dir = os.path.dirname(os.path.abspath(__file__))
     locale_dir = os.path.join(plugin_dir, "locale")
 
     try:
-        _locale_result = locale.setlocale(locale.LC_ALL, '')
+        locale.setlocale(locale.LC_ALL, '')
     except locale.Error:
         try:
-            _locale_result = locale.setlocale(locale.LC_ALL, 'C.UTF-8')
+            locale.setlocale(locale.LC_ALL, 'C.UTF-8')
         except locale.Error:
-            _locale_result = locale.setlocale(locale.LC_ALL, 'C')
+            locale.setlocale(locale.LC_ALL, 'C')
 
     try:
         translation = gettext.translation(DOMAIN, locale_dir, fallback=True)
@@ -47,5 +48,6 @@ def setup_i18n() -> Callable[[str], str]:
 
         builtins.__dict__['_'] = fallback_gettext
         return fallback_gettext
+
 
 _: Callable[[str], str] = setup_i18n()

@@ -11,6 +11,7 @@ import subprocess
 import sys
 from pathlib import Path
 
+
 def update_po_file(po_file: Path, pot_file: Path) -> bool:
     """Update a single .po file with new strings from .pot template"""
 
@@ -38,6 +39,7 @@ def update_po_file(po_file: Path, pot_file: Path) -> bool:
         print("✗ msgmerge not found. Install gettext tools.")
         return False
 
+
 def find_po_files() -> list[Path]:
     """Find all .po files directly in the locale directory"""
 
@@ -46,13 +48,15 @@ def find_po_files() -> list[Path]:
         print("No locale directory found!")
         return []
 
-    po_files = [f for f in locale_dir.iterdir() if f.is_file() and f.suffix == '.po']
+    po_files = [f for f in locale_dir.iterdir()
+                if f.is_file() and f.suffix == '.po']
 
     if not po_files:
         print("No .po files found in locale/ directory")
         return []
 
     return po_files
+
 
 def update_all_translations() -> bool:
     """Update all existing .po files with new strings from .pot template"""
@@ -62,7 +66,8 @@ def update_all_translations() -> bool:
 
     pot_file = Path('locale/dream-background-remover.pot')
     if not pot_file.exists():
-        print("Translation template not found: locale/dream-background-remover.pot")
+        print("Translation template not found: "
+              "locale/dream-background-remover.pot")
         print("Run 'python3 scripts/update-pot.py' first")
         return False
 
@@ -80,6 +85,7 @@ def update_all_translations() -> bool:
 
     print(f"Update complete: {success_count}/{len(po_files)} files updated")
     return success_count == len(po_files)
+
 
 if __name__ == '__main__':
     if update_all_translations():

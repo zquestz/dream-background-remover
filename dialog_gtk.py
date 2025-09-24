@@ -14,6 +14,7 @@ from gi.repository import Gtk
 from i18n import _
 from settings import AVAILABLE_MODELS, get_model_display_name
 
+
 class DreamBackgroundRemoverUI:
     """Handles all GTK UI creation and layout"""
 
@@ -99,7 +100,8 @@ class DreamBackgroundRemoverUI:
         is_visible = button.get_active()
         self.api_key_entry.set_visibility(is_visible)
 
-        icon_name = "view-reveal-symbolic" if is_visible else "view-conceal-symbolic"
+        icon_name = ("view-reveal-symbolic" if is_visible
+                     else "view-conceal-symbolic")
         button.get_image().set_from_icon_name(icon_name, Gtk.IconSize.BUTTON)
 
     def update_model_description(self, model_key):
@@ -109,11 +111,14 @@ class DreamBackgroundRemoverUI:
 
         model_descriptions = {
             "bria": _("Bria's Remove Background model - High Quality"),
-            "851labs": _("851 Labs Background Remover - Fast and Inexpensive")
+            "851-labs": _("851 Labs Background Remover - "
+                          "Fast and Inexpensive")
         }
 
-        description = model_descriptions.get(model_key, _("Choose the AI model for background removal"))
-        self.model_description.set_markup(f'<small><i>{description}</i></small>')
+        description = model_descriptions.get(
+            model_key, _("Choose the AI model for background removal"))
+        markup = f'<small><i>{description}</i></small>'
+        self.model_description.set_markup(markup)
 
     def update_remove_background_button_state(self, api_key):
         """Update remove background button sensitivity based on API key"""
@@ -144,18 +149,20 @@ class DreamBackgroundRemoverUI:
         title_label.set_halign(Gtk.Align.START)
         section_box.pack_start(title_label, False, False, 0)
 
-        key_container = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=8)
+        key_container = Gtk.Box(
+            orientation=Gtk.Orientation.HORIZONTAL, spacing=8)
 
         self.api_key_entry = Gtk.Entry()
-        self.api_key_entry.set_placeholder_text(_("Enter your Replicate API key..."))
+        self.api_key_entry.set_placeholder_text(
+            _("Enter your Replicate API key..."))
         self.api_key_entry.set_visibility(False)
         self.api_key_entry.set_input_purpose(Gtk.InputPurpose.PASSWORD)
         key_container.pack_start(self.api_key_entry, True, True, 0)
 
         self.toggle_visibility_btn = Gtk.ToggleButton()
-        self.toggle_visibility_btn.set_image(
-            Gtk.Image.new_from_icon_name("view-conceal-symbolic", Gtk.IconSize.BUTTON)
-        )
+        icon = Gtk.Image.new_from_icon_name(
+            "view-conceal-symbolic", Gtk.IconSize.BUTTON)
+        self.toggle_visibility_btn.set_image(icon)
         self.toggle_visibility_btn.set_tooltip_text(_("Show/Hide API key"))
         key_container.pack_start(self.toggle_visibility_btn, False, False, 0)
 
@@ -163,7 +170,8 @@ class DreamBackgroundRemoverUI:
 
         help_label = Gtk.Label()
         help_url = "https://replicate.com/"
-        help_text = _('Get your API key from <a href="{url}">Replicate</a>').format(url=help_url)
+        help_text = _('Get your API key from <a href="{url}">Replicate</a>')\
+            .format(url=help_url)
         help_label.set_markup(f'<small>{help_text}</small>')
         help_label.set_halign(Gtk.Align.START)
         help_label.set_line_wrap(True)
@@ -173,14 +181,17 @@ class DreamBackgroundRemoverUI:
 
     def _create_buttons_section(self):
         """Create action buttons section"""
-        buttons_box = Gtk.Box(orientation=Gtk.Orientation.HORIZONTAL, spacing=12)
+        buttons_box = Gtk.Box(
+            orientation=Gtk.Orientation.HORIZONTAL, spacing=12)
         buttons_box.set_halign(Gtk.Align.CENTER)
 
         self.cancel_btn = Gtk.Button.new_with_label(_("Cancel"))
         buttons_box.pack_start(self.cancel_btn, False, False, 0)
 
-        self.remove_background_btn = Gtk.Button.new_with_label(_("Remove Background"))
-        self.remove_background_btn.get_style_context().add_class("suggested-action")
+        self.remove_background_btn = Gtk.Button(
+            label=_("Remove Background"))
+        style_context = self.remove_background_btn.get_style_context()
+        style_context.add_class("suggested-action")
         buttons_box.pack_start(self.remove_background_btn, False, False, 0)
 
         return buttons_box
@@ -204,7 +215,10 @@ class DreamBackgroundRemoverUI:
         self.model_description = Gtk.Label()
         self.model_description.set_halign(Gtk.Align.START)
         self.model_description.set_line_wrap(True)
-        self.model_description.set_markup(f'<small><i>{_("Choose the AI model for background removal")}</i></small>')
+        markup = (f'<small><i>'
+                  f'{_("Choose the AI model for background removal")}'
+                  f'</i></small>')
+        self.model_description.set_markup(markup)
         section_box.pack_start(self.model_description, False, False, 0)
 
         return section_box
@@ -220,7 +234,8 @@ class DreamBackgroundRemoverUI:
 
         radio_box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=4)
 
-        self.layer_mode_radio = Gtk.RadioButton.new_with_label(None, _("Create Layer"))
+        self.layer_mode_radio = Gtk.RadioButton.new_with_label(
+            None, _("Create Layer"))
         radio_box.pack_start(self.layer_mode_radio, False, False, 0)
 
         self.file_mode_radio = Gtk.RadioButton.new_with_label_from_widget(

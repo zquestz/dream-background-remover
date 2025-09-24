@@ -32,7 +32,7 @@ pip install replicate
 
 2. **Extract the release**
 
-   This will create a folder named `dream-background-remover-{version}` (e.g., `dream-background-remover-1.0.2`)
+   This will create a folder named `dream-background-remover-{version}` (e.g., `dream-background-remover-1.0.3`)
 
 3. **Move to your GIMP plugins folder with the correct name:**
 
@@ -44,10 +44,10 @@ pip install replicate
    Example for Linux:
 
    ```bash
-   # Extract creates dream-background-remover-1.0.2/
-   unzip dream-background-remover-1.0.2.zip
+   # Extract creates dream-background-remover-1.0.3/
+   unzip dream-background-remover-1.0.3.zip
    # Move to correct location with correct name
-   mv dream-background-remover-1.0.2 ~/.config/GIMP/3.0/plug-ins/dream-background-remover
+   mv dream-background-remover-1.0.3 ~/.config/GIMP/3.0/plug-ins/dream-background-remover
    ```
 
 4. **Make executable** (Linux/macOS only):

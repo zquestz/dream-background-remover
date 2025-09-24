@@ -11,6 +11,7 @@ import subprocess
 import sys
 from pathlib import Path
 
+
 def extract_strings() -> bool:
     """Extract strings and create .pot file"""
 
@@ -42,7 +43,7 @@ def extract_strings() -> bool:
         '--from-code=UTF-8',
         '--copyright-holder=Josh Ellithorpe',
         '--package-name=Dream Background Remover',
-        '--package-version=1.0.2',
+        '--package-version=1.0.3',
         '--msgid-bugs-address=quest@mac.com',
         '--add-comments=TRANSLATORS'
     ] + python_files
@@ -55,6 +56,7 @@ def extract_strings() -> bool:
         print(f"Error running xgettext: {e}")
         print("Please install gettext tools (xgettext)")
         return False
+
 
 if __name__ == '__main__':
     if extract_strings():

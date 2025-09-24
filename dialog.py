@@ -16,6 +16,7 @@ from dialog_gtk import DreamBackgroundRemoverUI
 from i18n import _
 from settings import load_settings, DEFAULT_MODEL
 
+
 class DreamBackgroundRemoverDialog(GimpUi.Dialog):
     """Main dialog window for the Dream Background Remover plugin"""
 
@@ -33,7 +34,8 @@ class DreamBackgroundRemoverDialog(GimpUi.Dialog):
         self.set_resizable(True)
 
         self.ui = DreamBackgroundRemoverUI()
-        self.events = DreamBackgroundRemoverEventHandler(self, self.ui, image, drawable)
+        self.events = DreamBackgroundRemoverEventHandler(
+            self, self.ui, image, drawable)
 
         self._initialize()
 
@@ -78,15 +80,16 @@ class DreamBackgroundRemoverDialog(GimpUi.Dialog):
             if settings.get("api_key") and self.ui.api_key_entry:
                 self.ui.api_key_entry.set_text(str(settings["api_key"]))
 
-            if "api_key_visible" in settings and self.ui.toggle_visibility_btn:
-                self.ui.toggle_visibility_btn.set_active(bool(settings["api_key_visible"]))
+            if ("api_key_visible" in settings and
+                    self.ui.toggle_visibility_btn):
+                self.ui.toggle_visibility_btn.set_active(
+                    bool(settings["api_key_visible"]))
 
             stored_mode = settings.get("mode", "layer")
             if stored_mode == "file" and self.ui.file_mode_radio:
                 self.ui.file_mode_radio.set_active(True)
-            else:
-                if self.ui.layer_mode_radio:
-                    self.ui.layer_mode_radio.set_active(True)
+            elif self.ui.layer_mode_radio:
+                self.ui.layer_mode_radio.set_active(True)
 
             stored_model = settings.get("model", DEFAULT_MODEL)
             if self.ui.model_combo and isinstance(stored_model, str):
@@ -98,7 +101,8 @@ class DreamBackgroundRemoverDialog(GimpUi.Dialog):
     def _update_source_info(self):
         """Update the source image information display"""
         if self.ui.source_info_label and self.image and self.drawable:
-            layer_name = self.drawable.get_name() if self.drawable else _("Current Layer")
+            layer_name = (self.drawable.get_name() if self.drawable
+                          else _("Current Layer"))
             width = self.drawable.get_width()
             height = self.drawable.get_height()
             info_text = _("{name} ({width}×{height}px)").format(

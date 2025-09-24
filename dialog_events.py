@@ -12,6 +12,7 @@ from dialog_threads import DreamBackgroundRemoverThreads
 from i18n import _
 from settings import store_settings
 
+
 class DreamBackgroundRemoverEventHandler:
     """Handles all dialog events and user interactions"""
 
@@ -50,13 +51,15 @@ class DreamBackgroundRemoverEventHandler:
             self.ui.model_combo.connect("changed", self.on_model_changed)
 
         if self.ui.toggle_visibility_btn:
-            self.ui.toggle_visibility_btn.connect("toggled", self.on_toggle_visibility)
+            self.ui.toggle_visibility_btn.connect("toggled",
+                                                  self.on_toggle_visibility)
 
         if self.ui.cancel_btn:
             self.ui.cancel_btn.connect("clicked", self.on_cancel)
 
         if self.ui.remove_background_btn:
-            self.ui.remove_background_btn.connect("clicked", self.on_remove_background)
+            self.ui.remove_background_btn.connect("clicked",
+                                                  self.on_remove_background)
 
         if self.ui.api_key_entry:
             self.ui.api_key_entry.connect("changed", self.on_api_key_changed)
