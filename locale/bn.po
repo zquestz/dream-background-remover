@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dream Background Remover 1.0.0\n"
 "Report-Msgid-Bugs-To: quest@mac.com\n"
-"POT-Creation-Date: 2025-09-23 16:25-1000\n"
+"POT-Creation-Date: 2025-10-18 12:32-1000\n"
 "PO-Revision-Date: 2025-09-19 22:22-1000\n"
 "Last-Translator: AI Assistant\n"
 "Language-Team: Bengali\n"
@@ -19,11 +19,11 @@ msgstr ""
 msgid "851 Labs Background Remover (Default)"
 msgstr "851 Labs পটভূমি অপসারণকারী (ডিফল্ট)"
 
-#: dialog_gtk.py:114
+#: dialog_gtk.py:109
 msgid "851 Labs Background Remover - Fast and Inexpensive"
 msgstr "851 Labs পটভূমি অপসারণকারী - দ্রুত এবং সাশ্রয়ী"
 
-#: dialog_gtk.py:205
+#: dialog_gtk.py:198
 msgid "AI Model"
 msgstr "AI মডেল"
 
@@ -47,11 +47,11 @@ msgstr "পটভূমি অপসারণ সম্পূর্ণ!"
 msgid "Bria Remove Background"
 msgstr "Bria পটভূমি সরান"
 
-#: dialog_gtk.py:113
+#: dialog_gtk.py:108
 msgid "Bria's Remove Background model - High Quality"
 msgstr "Bria-র পটভূমি অপসারণ মডেল - উচ্চ মানের"
 
-#: dialog_gtk.py:189
+#: dialog_gtk.py:182
 msgid "Cancel"
 msgstr "বাতিল"
 
@@ -59,15 +59,15 @@ msgstr "বাতিল"
 msgid "Cancelling..."
 msgstr "বাতিল করা হচ্ছে..."
 
-#: dialog_gtk.py:120 dialog_gtk.py:220
+#: dialog_gtk.py:115 dialog_gtk.py:213
 msgid "Choose the AI model for background removal"
 msgstr "পটভূমি অপসারণের জন্য AI মডেল বেছে নিন"
 
-#: dialog_gtk.py:243
+#: dialog_gtk.py:236
 msgid "Create File"
 msgstr "ফাইল তৈরি করুন"
 
-#: dialog_gtk.py:239
+#: dialog_gtk.py:232
 msgid "Create Layer"
 msgstr "স্তর তৈরি করুন"
 
@@ -75,7 +75,7 @@ msgstr "স্তর তৈরি করুন"
 msgid "Creating result..."
 msgstr "ফলাফল তৈরি করা হচ্ছে..."
 
-#: dialog.py:105
+#: dialog.py:101
 msgid "Current Layer"
 msgstr "বর্তমান স্তর"
 
@@ -83,7 +83,7 @@ msgstr "বর্তমান স্তর"
 msgid "Downloading result..."
 msgstr "ফলাফল ডাউনলোড করা হচ্ছে..."
 
-#: dialog.py:25
+#: dialog.py:21
 msgid "Dream Background Remover - AI Background Removal"
 msgstr "Dream Background Remover - AI পটভূমি অপসারণ"
 
@@ -91,7 +91,7 @@ msgstr "Dream Background Remover - AI পটভূমি অপসারণ"
 msgid "Dream Background Remover..."
 msgstr "Dream Background Remover..."
 
-#: dialog_gtk.py:158
+#: dialog_gtk.py:151
 msgid "Enter your Replicate API key..."
 msgstr "আপনার Replicate API কী প্রবেশ করান..."
 
@@ -121,7 +121,7 @@ msgstr "ছবির ডেটা রপ্তানি করতে ব্য�
 msgid "Failed to process image"
 msgstr "ছবি প্রক্রিয়াকরণে ব্যর্থ"
 
-#: dialog_gtk.py:174
+#: dialog_gtk.py:167
 #, python-brace-format
 msgid "Get your API key from <a href=\"{url}\">Replicate</a>"
 msgstr "<a href=\"{url}\">Replicate</a> থেকে আপনার API কী নিন"
@@ -151,7 +151,7 @@ msgstr "কোন ছবি উপলব্ধ নেই। দয়া কর�
 msgid "No image data in API response"
 msgstr "API প্রতিক্রিয়ায় কোন ছবির ডেটা নেই"
 
-#: dialog_gtk.py:265
+#: dialog_gtk.py:258
 msgid "No image selected"
 msgstr "কোন ছবি নির্বাচিত নয়"
 
@@ -175,7 +175,7 @@ msgstr "API থেকে কোন আউটপুট পাওয়া যা�
 msgid "Operation cancelled"
 msgstr "অপারেশন বাতিল করা হয়েছে"
 
-#: dialog_gtk.py:232
+#: dialog_gtk.py:225
 msgid "Output Mode"
 msgstr "আউটপুট মোড"
 
@@ -191,7 +191,7 @@ msgstr "আপলোডের জন্য ছবি প্রস্তুত �
 msgid "Processing image..."
 msgstr "ছবি প্রক্রিয়াকরণ করা হচ্ছে..."
 
-#: dialog_gtk.py:78 dialog_gtk.py:275
+#: dialog_gtk.py:268
 msgid "Ready"
 msgstr "প্রস্তুত"
 
@@ -199,11 +199,11 @@ msgstr "প্রস্তুত"
 msgid "Recraft Remove Background"
 msgstr "Recraft পটভূমি সরান"
 
-#: dialog_gtk.py:116
+#: dialog_gtk.py:111
 msgid "Recraft Remove Background - Tuned for AI"
 msgstr "Recraft ব্যাকগ্রাউন্ড অপসারণ - AI এর জন্য অপ্টিমাইজড"
 
-#: dialog_gtk.py:193
+#: dialog_gtk.py:186
 msgid "Remove Background"
 msgstr "পটভূমি সরান"
 
@@ -215,7 +215,7 @@ msgstr ""
 "AI ব্যবহার করে ছবি থেকে পটভূমি সরান। বর্তমান ছবিতে একটি নতুন স্তর তৈরি করা বা "
 "পটভূমি অপসারণ করে একটি নতুন ছবির ফাইল তৈরি করার জন্য বেছে নিন।"
 
-#: dialog_gtk.py:149
+#: dialog_gtk.py:142
 msgid "Replicate API Key"
 msgstr "Replicate API কী"
 
@@ -228,11 +228,11 @@ msgstr "Replicate API ত্রুটি: {error}"
 msgid "Replicate package not installed. Please run: pip install replicate"
 msgstr "Replicate প্যাকেজ ইনস্টল করা নেই। দয়া করে চালান: pip install replicate"
 
-#: dialog_gtk.py:167
+#: dialog_gtk.py:160
 msgid "Show/Hide API key"
 msgstr "API কী দেখান/লুকান"
 
-#: dialog_gtk.py:256
+#: dialog_gtk.py:249
 msgid "Source Image"
 msgstr "উৎস ছবি"
 
@@ -250,7 +250,7 @@ msgstr "অপ্রত্যাশিত ত্রুটি: {error}"
 msgid "Uploading image to Replicate..."
 msgstr "Replicate-এ ছবি আপলোড করা হচ্ছে..."
 
-#: dialog.py:108
+#: dialog.py:104
 #, python-brace-format
 msgid "{name} ({width}×{height}px)"
 msgstr "{name} ({width}×{height}px)"

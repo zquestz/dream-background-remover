@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dream Background Remover 1.0.0\n"
 "Report-Msgid-Bugs-To: quest@mac.com\n"
-"POT-Creation-Date: 2025-09-23 16:25-1000\n"
+"POT-Creation-Date: 2025-10-18 12:32-1000\n"
 "PO-Revision-Date: 2025-09-19 22:22-1000\n"
 "Last-Translator: AI Assistant\n"
 "Language-Team: Korean\n"
@@ -19,11 +19,11 @@ msgstr ""
 msgid "851 Labs Background Remover (Default)"
 msgstr "851 Labs 배경 제거기 (기본값)"
 
-#: dialog_gtk.py:114
+#: dialog_gtk.py:109
 msgid "851 Labs Background Remover - Fast and Inexpensive"
 msgstr "851 Labs 배경 제거기 - 빠르고 저렴함"
 
-#: dialog_gtk.py:205
+#: dialog_gtk.py:198
 msgid "AI Model"
 msgstr "AI 모델"
 
@@ -47,11 +47,11 @@ msgstr "배경 제거가 완료되었습니다!"
 msgid "Bria Remove Background"
 msgstr "Bria 배경 제거"
 
-#: dialog_gtk.py:113
+#: dialog_gtk.py:108
 msgid "Bria's Remove Background model - High Quality"
 msgstr "Bria의 배경 제거 모델 - 고품질"
 
-#: dialog_gtk.py:189
+#: dialog_gtk.py:182
 msgid "Cancel"
 msgstr "취소"
 
@@ -59,15 +59,15 @@ msgstr "취소"
 msgid "Cancelling..."
 msgstr "취소 중..."
 
-#: dialog_gtk.py:120 dialog_gtk.py:220
+#: dialog_gtk.py:115 dialog_gtk.py:213
 msgid "Choose the AI model for background removal"
 msgstr "배경 제거를 위한 AI 모델을 선택하세요"
 
-#: dialog_gtk.py:243
+#: dialog_gtk.py:236
 msgid "Create File"
 msgstr "파일 생성"
 
-#: dialog_gtk.py:239
+#: dialog_gtk.py:232
 msgid "Create Layer"
 msgstr "레이어 생성"
 
@@ -75,7 +75,7 @@ msgstr "레이어 생성"
 msgid "Creating result..."
 msgstr "결과를 생성하고 있습니다..."
 
-#: dialog.py:105
+#: dialog.py:101
 msgid "Current Layer"
 msgstr "현재 레이어"
 
@@ -83,7 +83,7 @@ msgstr "현재 레이어"
 msgid "Downloading result..."
 msgstr "결과를 다운로드하고 있습니다..."
 
-#: dialog.py:25
+#: dialog.py:21
 msgid "Dream Background Remover - AI Background Removal"
 msgstr "Dream Background Remover - AI 배경 제거"
 
@@ -91,7 +91,7 @@ msgstr "Dream Background Remover - AI 배경 제거"
 msgid "Dream Background Remover..."
 msgstr "Dream Background Remover..."
 
-#: dialog_gtk.py:158
+#: dialog_gtk.py:151
 msgid "Enter your Replicate API key..."
 msgstr "Replicate API 키를 입력하세요..."
 
@@ -121,7 +121,7 @@ msgstr "이미지 데이터 내보내기에 실패했습니다"
 msgid "Failed to process image"
 msgstr "이미지 처리에 실패했습니다"
 
-#: dialog_gtk.py:174
+#: dialog_gtk.py:167
 #, python-brace-format
 msgid "Get your API key from <a href=\"{url}\">Replicate</a>"
 msgstr "<a href=\"{url}\">Replicate</a>에서 API 키를 받아오세요"
@@ -151,7 +151,7 @@ msgstr "사용할 수 있는 이미지가 없습니다. 먼저 이미지를 열�
 msgid "No image data in API response"
 msgstr "API 응답에 이미지 데이터가 없습니다"
 
-#: dialog_gtk.py:265
+#: dialog_gtk.py:258
 msgid "No image selected"
 msgstr "선택된 이미지가 없습니다"
 
@@ -175,7 +175,7 @@ msgstr "API로부터 출력을 받지 못했습니다"
 msgid "Operation cancelled"
 msgstr "작업이 취소되었습니다"
 
-#: dialog_gtk.py:232
+#: dialog_gtk.py:225
 msgid "Output Mode"
 msgstr "출력 모드"
 
@@ -191,7 +191,7 @@ msgstr "업로드할 이미지를 준비하고 있습니다..."
 msgid "Processing image..."
 msgstr "이미지를 처리하고 있습니다..."
 
-#: dialog_gtk.py:78 dialog_gtk.py:275
+#: dialog_gtk.py:268
 msgid "Ready"
 msgstr "준비됨"
 
@@ -199,11 +199,11 @@ msgstr "준비됨"
 msgid "Recraft Remove Background"
 msgstr "Recraft 배경 제거"
 
-#: dialog_gtk.py:116
+#: dialog_gtk.py:111
 msgid "Recraft Remove Background - Tuned for AI"
 msgstr "Recraft 배경 제거 - AI용 최적화"
 
-#: dialog_gtk.py:193
+#: dialog_gtk.py:186
 msgid "Remove Background"
 msgstr "배경 제거"
 
@@ -215,7 +215,7 @@ msgstr ""
 "AI를 사용하여 이미지에서 배경을 제거합니다. 현재 이미지에 새 레이어를 생성하"
 "거나 배경이 제거된 새 이미지 파일을 생성할 수 있습니다."
 
-#: dialog_gtk.py:149
+#: dialog_gtk.py:142
 msgid "Replicate API Key"
 msgstr "Replicate API 키"
 
@@ -229,11 +229,11 @@ msgid "Replicate package not installed. Please run: pip install replicate"
 msgstr ""
 "Replicate 패키지가 설치되지 않았습니다. pip install replicate를 실행하세요"
 
-#: dialog_gtk.py:167
+#: dialog_gtk.py:160
 msgid "Show/Hide API key"
 msgstr "API 키 표시/숨김"
 
-#: dialog_gtk.py:256
+#: dialog_gtk.py:249
 msgid "Source Image"
 msgstr "소스 이미지"
 
@@ -251,7 +251,7 @@ msgstr "예상치 못한 오류: {error}"
 msgid "Uploading image to Replicate..."
 msgstr "Replicate에 이미지를 업로드하고 있습니다..."
 
-#: dialog.py:108
+#: dialog.py:104
 #, python-brace-format
 msgid "{name} ({width}×{height}px)"
 msgstr "{name} ({width}×{height}px)"

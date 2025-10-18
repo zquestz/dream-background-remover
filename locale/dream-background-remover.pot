@@ -6,9 +6,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Dream Background Remover 1.0.4\n"
+"Project-Id-Version: Dream Background Remover 1.0.5\n"
 "Report-Msgid-Bugs-To: quest@mac.com\n"
-"POT-Creation-Date: 2025-09-23 16:29-1000\n"
+"POT-Creation-Date: 2025-10-18 12:32-1000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -92,15 +92,15 @@ msgstr ""
 msgid "Unexpected error: {error}"
 msgstr ""
 
-#: dialog.py:25
+#: dialog.py:21
 msgid "Dream Background Remover - AI Background Removal"
 msgstr ""
 
-#: dialog.py:105
+#: dialog.py:101
 msgid "Current Layer"
 msgstr ""
 
-#: dialog.py:108
+#: dialog.py:104
 #, python-brace-format
 msgid "{name} ({width}×{height}px)"
 msgstr ""
@@ -109,73 +109,73 @@ msgstr ""
 msgid "Please enter your Replicate API key"
 msgstr ""
 
-#: dialog_gtk.py:78 dialog_gtk.py:275
-msgid "Ready"
-msgstr ""
-
-#: dialog_gtk.py:113
+#: dialog_gtk.py:108
 msgid "Bria's Remove Background model - High Quality"
 msgstr ""
 
-#: dialog_gtk.py:114
+#: dialog_gtk.py:109
 msgid "851 Labs Background Remover - Fast and Inexpensive"
 msgstr ""
 
-#: dialog_gtk.py:116
+#: dialog_gtk.py:111
 msgid "Recraft Remove Background - Tuned for AI"
 msgstr ""
 
-#: dialog_gtk.py:120 dialog_gtk.py:220
+#: dialog_gtk.py:115 dialog_gtk.py:213
 msgid "Choose the AI model for background removal"
 msgstr ""
 
-#: dialog_gtk.py:149
+#: dialog_gtk.py:142
 msgid "Replicate API Key"
 msgstr ""
 
-#: dialog_gtk.py:158
+#: dialog_gtk.py:151
 msgid "Enter your Replicate API key..."
 msgstr ""
 
-#: dialog_gtk.py:167
+#: dialog_gtk.py:160
 msgid "Show/Hide API key"
 msgstr ""
 
-#: dialog_gtk.py:174
+#: dialog_gtk.py:167
 #, python-brace-format
 msgid "Get your API key from <a href=\"{url}\">Replicate</a>"
 msgstr ""
 
-#: dialog_gtk.py:189
+#: dialog_gtk.py:182
 msgid "Cancel"
 msgstr ""
 
-#: dialog_gtk.py:193
+#: dialog_gtk.py:186
 msgid "Remove Background"
 msgstr ""
 
-#: dialog_gtk.py:205
+#: dialog_gtk.py:198
 msgid "AI Model"
 msgstr ""
 
-#: dialog_gtk.py:232
+#: dialog_gtk.py:225
 msgid "Output Mode"
 msgstr ""
 
-#: dialog_gtk.py:239
+#: dialog_gtk.py:232
 msgid "Create Layer"
 msgstr ""
 
-#: dialog_gtk.py:243
+#: dialog_gtk.py:236
 msgid "Create File"
 msgstr ""
 
-#: dialog_gtk.py:256
+#: dialog_gtk.py:249
 msgid "Source Image"
 msgstr ""
 
-#: dialog_gtk.py:265
+#: dialog_gtk.py:258
 msgid "No image selected"
+msgstr ""
+
+#: dialog_gtk.py:268
+msgid "Ready"
 msgstr ""
 
 #: dialog_threads.py:36

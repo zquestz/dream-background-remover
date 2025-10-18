@@ -110,7 +110,7 @@ class DreamBackgroundRemoverEventHandler:
         if self.ui.status_label:
             self.ui.status_label.set_text(message)
 
-        self.ui.hide_progress()
+        self.ui.reset_progress()
         self.ui.set_ui_enabled(True)
 
     def update_remove_background_button_state(self):

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Dream Background Remover 1.0.0\n"
 "Report-Msgid-Bugs-To: quest@mac.com\n"
-"POT-Creation-Date: 2025-09-23 16:25-1000\n"
+"POT-Creation-Date: 2025-10-18 12:32-1000\n"
 "PO-Revision-Date: 2025-09-19 22:22-1000\n"
 "Last-Translator: AI Assistant\n"
 "Language-Team: French\n"
@@ -19,11 +19,11 @@ msgstr ""
 msgid "851 Labs Background Remover (Default)"
 msgstr "Suppresseur d'Arrière-plan 851 Labs (Par défaut)"
 
-#: dialog_gtk.py:114
+#: dialog_gtk.py:109
 msgid "851 Labs Background Remover - Fast and Inexpensive"
 msgstr "Suppresseur d'arrière-plan 851 Labs - Rapide et peu coûteux"
 
-#: dialog_gtk.py:205
+#: dialog_gtk.py:198
 msgid "AI Model"
 msgstr "Modèle IA"
 
@@ -47,11 +47,11 @@ msgstr "Suppression de l'arrière-plan terminée !"
 msgid "Bria Remove Background"
 msgstr "Bria Supprimer l'Arrière-plan"
 
-#: dialog_gtk.py:113
+#: dialog_gtk.py:108
 msgid "Bria's Remove Background model - High Quality"
 msgstr "Modèle de suppression d'arrière-plan de Bria - Haute qualité"
 
-#: dialog_gtk.py:189
+#: dialog_gtk.py:182
 msgid "Cancel"
 msgstr "Annuler"
 
@@ -59,15 +59,15 @@ msgstr "Annuler"
 msgid "Cancelling..."
 msgstr "Annulation..."
 
-#: dialog_gtk.py:120 dialog_gtk.py:220
+#: dialog_gtk.py:115 dialog_gtk.py:213
 msgid "Choose the AI model for background removal"
 msgstr "Choisissez le modèle IA pour la suppression d'arrière-plan"
 
-#: dialog_gtk.py:243
+#: dialog_gtk.py:236
 msgid "Create File"
 msgstr "Créer un fichier"
 
-#: dialog_gtk.py:239
+#: dialog_gtk.py:232
 msgid "Create Layer"
 msgstr "Créer un calque"
 
@@ -75,7 +75,7 @@ msgstr "Créer un calque"
 msgid "Creating result..."
 msgstr "Création du résultat..."
 
-#: dialog.py:105
+#: dialog.py:101
 msgid "Current Layer"
 msgstr "Calque actuel"
 
@@ -83,7 +83,7 @@ msgstr "Calque actuel"
 msgid "Downloading result..."
 msgstr "Téléchargement du résultat..."
 
-#: dialog.py:25
+#: dialog.py:21
 msgid "Dream Background Remover - AI Background Removal"
 msgstr "Dream Background Remover - Suppression d'arrière-plan IA"
 
@@ -91,7 +91,7 @@ msgstr "Dream Background Remover - Suppression d'arrière-plan IA"
 msgid "Dream Background Remover..."
 msgstr "Dream Background Remover..."
 
-#: dialog_gtk.py:158
+#: dialog_gtk.py:151
 msgid "Enter your Replicate API key..."
 msgstr "Saisissez votre clé API Replicate..."
 
@@ -121,7 +121,7 @@ msgstr "Échec de l'exportation des données d'image"
 msgid "Failed to process image"
 msgstr "Échec du traitement de l'image"
 
-#: dialog_gtk.py:174
+#: dialog_gtk.py:167
 #, python-brace-format
 msgid "Get your API key from <a href=\"{url}\">Replicate</a>"
 msgstr "Obtenez votre clé API depuis <a href=\"{url}\">Replicate</a>"
@@ -152,7 +152,7 @@ msgstr "Aucune image disponible. Veuillez d'abord ouvrir une image."
 msgid "No image data in API response"
 msgstr "Aucune donnée d'image dans la réponse API"
 
-#: dialog_gtk.py:265
+#: dialog_gtk.py:258
 msgid "No image selected"
 msgstr "Aucune image sélectionnée"
 
@@ -176,7 +176,7 @@ msgstr "Aucune sortie reçue de l'API"
 msgid "Operation cancelled"
 msgstr "Opération annulée"
 
-#: dialog_gtk.py:232
+#: dialog_gtk.py:225
 msgid "Output Mode"
 msgstr "Mode de sortie"
 
@@ -192,7 +192,7 @@ msgstr "Préparation de l'image pour le téléchargement..."
 msgid "Processing image..."
 msgstr "Traitement de l'image..."
 
-#: dialog_gtk.py:78 dialog_gtk.py:275
+#: dialog_gtk.py:268
 msgid "Ready"
 msgstr "Prêt"
 
@@ -200,11 +200,11 @@ msgstr "Prêt"
 msgid "Recraft Remove Background"
 msgstr "Recraft Supprimer l'Arrière-plan"
 
-#: dialog_gtk.py:116
+#: dialog_gtk.py:111
 msgid "Recraft Remove Background - Tuned for AI"
 msgstr "Recraft Supprimer l'Arrière-plan - Optimisé pour l'IA"
 
-#: dialog_gtk.py:193
+#: dialog_gtk.py:186
 msgid "Remove Background"
 msgstr "Supprimer l'arrière-plan"
 
@@ -217,7 +217,7 @@ msgstr ""
 "créer un nouveau calque dans l'image actuelle ou de générer un nouveau "
 "fichier image avec l'arrière-plan supprimé."
 
-#: dialog_gtk.py:149
+#: dialog_gtk.py:142
 msgid "Replicate API Key"
 msgstr "Clé API Replicate"
 
@@ -231,11 +231,11 @@ msgid "Replicate package not installed. Please run: pip install replicate"
 msgstr ""
 "Package Replicate non installé. Veuillez exécuter : pip install replicate"
 
-#: dialog_gtk.py:167
+#: dialog_gtk.py:160
 msgid "Show/Hide API key"
 msgstr "Afficher/Masquer la clé API"
 
-#: dialog_gtk.py:256
+#: dialog_gtk.py:249
 msgid "Source Image"
 msgstr "Image source"
 
@@ -253,7 +253,7 @@ msgstr "Erreur inattendue : {error}"
 msgid "Uploading image to Replicate..."
 msgstr "Téléchargement de l'image vers Replicate..."
 
-#: dialog.py:108
+#: dialog.py:104
 #, python-brace-format
 msgid "{name} ({width}×{height}px)"
 msgstr "{name} ({width}×{height}px)"

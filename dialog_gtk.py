@@ -6,9 +6,6 @@ GTK UI components for Dream Background Remover dialog
 Handles all GTK interface creation and layout
 """
 
-import gi
-gi.require_version('Gtk', '3.0')
-
 from gi.repository import Gtk
 
 from i18n import _
@@ -70,12 +67,10 @@ class DreamBackgroundRemoverUI:
         except Exception as e:
             print(f"Error building interface: {e}")
 
-    def hide_progress(self):
-        """Hide progress display"""
+    def reset_progress(self):
+        """Reset progress display to initial state"""
         if self.progress_bar:
-            self.progress_bar.set_visible(False)
-        if self.status_label:
-            self.status_label.set_text(_("Ready"))
+            self.progress_bar.set_fraction(0.0)
 
     def set_ui_enabled(self, enabled=True):
         """Enable/disable UI controls"""
@@ -136,10 +131,8 @@ class DreamBackgroundRemoverUI:
         if self.progress_bar:
             if percentage is not None:
                 self.progress_bar.set_fraction(percentage)
-                self.progress_bar.set_visible(True)
             else:
                 self.progress_bar.pulse()
-                self.progress_bar.set_visible(True)
 
     def _create_api_key_section(self):
         """Create API key input section"""
@@ -277,7 +270,8 @@ class DreamBackgroundRemoverUI:
         section_box.pack_start(self.status_label, False, False, 0)
 
         self.progress_bar = Gtk.ProgressBar()
-        self.progress_bar.set_visible(False)
+        self.progress_bar.set_fraction(0.0)
+        self.progress_bar.set_show_text(False)
         section_box.pack_start(self.progress_bar, False, False, 0)
 
         return section_box
